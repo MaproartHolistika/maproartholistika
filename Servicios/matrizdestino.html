@@ -234,9 +234,19 @@
         <div class="card">
           <img src="https://guiaparasanarelalma.com/wp-content/uploads/2025/12/221fb8c43152630df6d8ec4ba2872349.webp" alt="Estudio de la Matriz del Destino" style="width: 100%; border-radius: 4px;">
           
-          <div style="background: var(--bg-gradient); padding: 25px; margin-top: 15px; border: 1px solid var(--violet-2); text-align: center; border-radius: 4px; box-shadow: 0 4px 15px rgba(106, 27, 154, 0.1);">
-            <span style="font-size: 13px; font-weight: 600; color: #777; text-transform: uppercase; letter-spacing: 1px;">Sesión de Alta Frecuencia</span>
-            <h3 style="font-size: 36px; color: var(--violet-1); margin: 8px 0;">$119<small style="font-size: 14px;">USD</small></h3>
+          <div style="background: var(--bg-gradient); padding: 12px; margin-top: 15px; border: 1px solid var(--violet-2); border-radius: 4px; box-shadow: 0 4px 15px rgba(106, 27, 154, 0.1); display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+            <div style="text-align: center; flex: 1; min-width: 125px;">
+              <span style="font-size: 16px;">🇦🇷</span>
+              <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde Argentina</div>
+              <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$105.000 <small style="font-size: 11px;">ARS</small></h3>
+              <a target="_blank" href="https://mpago.li/2zj84Av" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-top: 2px;">Pagar con Mercado Pago</a>
+            </div>
+            <div style="text-align: center; flex: 1; min-width: 125px; border-left: 1px solid rgba(0,0,0,0.1);">
+              <span style="font-size: 16px;">🌍</span>
+              <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde el exterior</div>
+              <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$69 <small style="font-size: 11px;">USD</small></h3>
+              <div id="paypal-container-J8NEA4VE3EC2Y" style="margin-top: 4px; transform: scale(0.82); transform-origin: top center;"></div>
+            </div>
           </div>
 
           <div style="background: var(--muted); padding: 20px; margin-top: 15px; border-radius: 4px; text-align: center;">
@@ -329,5 +339,13 @@
       });
     });
   </script>
+<script src="https://www.paypal.com/sdk/js?client-id=BAAprxqOUwqicHofWyIxq6-9B8-AfUDpTQsAHIGNU6d3CWpI63TfvugX6h2HRLNR3jMOvDjjjFybAlcoT0&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+<script>
+  if(window.paypal && paypal.HostedButtons){
+    paypal.HostedButtons({
+      hostedButtonId: "J8NEA4VE3EC2Y",
+    }).render("#paypal-container-J8NEA4VE3EC2Y");
+  }
+</script>
 </body>
 </html>
