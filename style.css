@@ -201,17 +201,24 @@ body {
   padding: 60px 20px;
 }
 
+.hero-text {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  padding: 40px 30px;
+}
+
 .hero-text h1 {
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.75);
+  text-shadow: none;
+  color: #26215C;
   font-size: 42px;
   font-weight: 700;
-  margin: 64px 0px;
+  margin: 0 0 20px;
   line-height: 1.2;
 }
 
 .hero-text p {
-   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.75);
-  color: rgba(255, 255, 255, 0.9);
+  text-shadow: none;
+  color: #3C3489;
   font-size: 18px;
   margin: 8px 0 18px;
 }
@@ -221,13 +228,13 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 64px 0;
+    margin: 30px 0 0;
     gap: 12px;
 }
 
 .hero-cta .btn {
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid #6a1b9a;
+  color: #6a1b9a;
   padding: 10px 22px;
 
   text-decoration: none;
@@ -237,12 +244,12 @@ body {
 }
 
 .hero-cta a {
-  text-shadow: 0 4px 12px rgb(0, 0, 0);
+  text-shadow: none;
 }
 
 .hero-cta .btn:hover {
-  background: #fff;
-  color: var(--violet-1);
+  background: #6a1b9a;
+  color: #fff;
 }
 
 /* 📘 SECCIONES */
