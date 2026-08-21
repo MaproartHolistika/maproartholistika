@@ -206,7 +206,7 @@ body {
 
 .hero-text h1 {
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
-  color: #1a1025;
+  color: var(--violet-1);
   font-size: 42px;
   font-weight: 700;
   margin: 64px 0px;
@@ -215,7 +215,7 @@ body {
 
 .hero-text p {
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
-  color: #2a1f3d;
+  color: var(--violet-1);
   font-size: 18px;
   margin: 8px 0 18px;
 }
@@ -230,8 +230,8 @@ body {
 }
 
 .hero-cta .btn {
-  border: 1px solid #1a1025;
-  color: #1a1025;
+  border: 1px solid var(--violet-1);
+  color: var(--violet-1);
   padding: 10px 22px;
 
   text-decoration: none;
@@ -245,7 +245,7 @@ body {
 }
 
 .hero-cta .btn:hover {
-  background: #1a1025;
+  background: var(--violet-1);
   color: #fff;
 }
 
