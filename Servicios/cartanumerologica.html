@@ -318,7 +318,7 @@
           </div>
 
           <div class="text-center" style="margin-top: 20px;">
-            <a href="#pago-carta" 
+            <a href="#pago-carta" id="btn-solicitar-carta"
    class="btn-primary" 
    style="width: 100%; max-width: 350px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
    <i class="fas fa-arrow-up"></i> SOLICITAR MI CARTA HOY
@@ -394,6 +394,19 @@
         btn.textContent = 'Continuar al pago';
         errorMsg.style.display = 'block';
       });
+    });
+  })();
+
+  (function(){
+    var btn = document.getElementById('btn-solicitar-carta');
+    var target = document.getElementById('pago-carta');
+    if(!btn || !target) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.style.transition = 'box-shadow 0.3s ease';
+      target.style.boxShadow = '0 0 0 3px var(--violet-2)';
+      setTimeout(function(){ target.style.boxShadow = 'none'; }, 1500);
     });
   })();
 </script>
