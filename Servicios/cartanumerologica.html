@@ -236,18 +236,37 @@
         <div class="card">
           <img src="https://espacioalquitara.org/wp-content/uploads/Carta-Numerol%C3%B3gica.jpg" alt="Estudio Numerológico Profundo" style="width: 100%; border-radius: 4px; margin-top: 0; min-height: 320px; object-fit: cover;">
           
-          <div id="pago-carta" style="background: var(--bg-gradient); padding: 10px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;">
-            <div style="text-align: center; flex: 1; min-width: 115px;">
-              <span style="font-size: 14px;">🇦🇷</span>
-              <div style="font-size: 10px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde Argentina</div>
-              <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 14px;">$99.900 <small style="font-size: 10px;">ARS</small></h3>
-              <a target="_blank" href="https://mpago.li/1C1ssGN" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-top: 2px;">Pagar con Mercado Pago</a>
+          <div id="pago-carta" style="background: var(--bg-gradient); padding: 14px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <span style="font-size: 14px;">🇦🇷</span>
+                <div style="font-size: 10px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde Argentina</div>
+                <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 14px;">$99.900 <small style="font-size: 10px;">ARS</small></h3>
+              </div>
+              <div style="text-align: center; flex: 1; min-width: 115px; border-left: 1px solid rgba(0,0,0,0.1);">
+                <span style="font-size: 14px;">🌍</span>
+                <div style="font-size: 10px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde el exterior</div>
+                <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 14px;">$67 <small style="font-size: 10px;">USD</small></h3>
+              </div>
             </div>
-            <div style="text-align: center; flex: 1; min-width: 115px; border-left: 1px solid rgba(0,0,0,0.1);">
-              <span style="font-size: 14px;">🌍</span>
-              <div style="font-size: 10px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde el exterior</div>
-              <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 14px;">$67 <small style="font-size: 10px;">USD</small></h3>
-              <a target="_blank" href="https://www.paypal.com/ncp/payment/BZ9YDBBZKZHJU" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-top: 2px;">Pagar con PayPal</a>
+
+            <form id="form-compra-carta" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 12px;">
+              <p style="font-size: 12px; color: #444; text-align: center; margin: 0 0 8px;">Completá tus datos para continuar al pago:</p>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <label for="fecha-nac-carta" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Fecha de nacimiento</label>
+              <input type="date" id="fecha-nac-carta" name="fecha_nacimiento" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <input type="email" name="email" placeholder="Tu email" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Continuar al pago</button>
+              <p id="form-error-carta" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+            </form>
+
+            <div id="botones-pago-carta" style="display: none; gap: 8px; flex-wrap: wrap; justify-content: center; padding-top: 4px;">
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a target="_blank" href="https://mpago.li/1C1ssGN" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
+              </div>
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a target="_blank" href="https://www.paypal.com/ncp/payment/BZ9YDBBZKZHJU" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
+              </div>
             </div>
           </div>
 
@@ -345,5 +364,38 @@
       });
     });
   </script>
+<script>
+  (function(){
+    var form = document.getElementById('form-compra-carta');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-carta');
+    var botones = document.getElementById('botones-pago-carta');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.style.display = 'none';
+          botones.style.display = 'flex';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Continuar al pago';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Continuar al pago';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
+</script>
 </body>
 </html>
