@@ -234,29 +234,53 @@
         <div class="card">
           <img src="https://www.clarin.com/2023/10/25/JwzvDNock_2000x1500__1.jpg" alt="Limpieza Energética Profesional" style="width: 100%; border-radius: 4px;">
           
-          <div style="background: var(--bg-gradient); padding: 12px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px;">
+          <div id="pago-limpiezas" style="background: var(--bg-gradient); padding: 14px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px;">
             <div style="text-align: center; margin-bottom: 8px;">
               <span style="font-size: 11px; font-weight: 600; color: #777; text-transform: uppercase;">Inversión por Servicio</span>
             </div>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
               <div style="text-align: center; flex: 1; min-width: 125px;">
                 <span style="font-size: 16px;">🇦🇷</span>
                 <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde Argentina</div>
                 <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$65.000 <small style="font-size: 11px;">ARS</small></h3>
-                <a target="_blank" href="https://mpago.li/1CsH8sd" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-top: 2px;">Pagar con Mercado Pago</a>
               </div>
               <div style="text-align: center; flex: 1; min-width: 125px; border-left: 1px solid rgba(0,0,0,0.1);">
                 <span style="font-size: 16px;">🌍</span>
                 <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde el exterior</div>
-                <div id="paypal-container-VCN7JV55JBZR2" style="margin-top: 10px; transform: scale(0.82); transform-origin: top center;"></div>
+                <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$43 <small style="font-size: 11px;">USD</small></h3>
               </div>
             </div>
 
-            <ul style="list-style: none; padding: 0; margin: 10px 0 0 0; font-size: 13px; color: #555; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px;">
+            <ul style="list-style: none; padding: 0; margin: 0 0 10px 0; font-size: 13px; color: #555; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px;">
               <li>📍 Limpieza de Personas</li>
               <li>📍 Limpieza de Hogar</li>
               <li>📍 Limpieza de Negocios</li>
             </ul>
+
+            <form id="form-compra-limpiezas" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 12px;">
+              <input type="hidden" name="_subject" value="Nueva solicitud - Limpieza Energética">
+              <p style="font-size: 12px; color: #444; text-align: center; margin: 0 0 8px;">Completá tus datos para continuar al pago:</p>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <label for="tipo-limpieza" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Tipo de limpieza</label>
+              <select id="tipo-limpieza" name="tipo_limpieza" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+                <option value="">Elegí una opción</option>
+                <option value="Persona">Limpieza de Personas</option>
+                <option value="Hogar">Limpieza de Hogar</option>
+                <option value="Negocio">Limpieza de Negocios</option>
+              </select>
+              <input type="email" name="email" placeholder="Tu email" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Continuar al pago</button>
+              <p id="form-error-limpiezas" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+            </form>
+
+            <div id="botones-pago-limpiezas" style="display: none; gap: 8px; flex-wrap: wrap; justify-content: center; padding-top: 4px;">
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a target="_blank" href="https://mpago.li/1CsH8sd" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
+              </div>
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a target="_blank" href="https://www.paypal.com/ncp/payment/VCN7JV55JBZR2" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
+              </div>
+            </div>
           </div>
 
           <div style="background: var(--muted); padding: 15px; margin-top: 15px; border-radius: 4px; text-align: center;">
@@ -295,11 +319,10 @@
           </div>
 
           <div class="text-center" style="margin-top: 20px;">
-            <a target="_blank" 
-   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Me%20contacto%20para%20solicitar%20un%20diagn%C3%B3stico%20de%20Limpieza%20Energ%C3%A9tica.%20Me%20gustar%C3%ADa%20consultarte%20por%20una%20limpieza%20de%3A" 
+            <a href="#pago-limpiezas" id="btn-solicitar-limpiezas"
    class="btn-primary" 
    style="width: 100%; max-width: 350px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
-   <i class="fab fa-whatsapp"></i> SOLICITAR MI DIAGNÓSTICO
+   <i class="fas fa-arrow-up"></i> SOLICITAR MI DIAGNÓSTICO
 </a>
           </div>
 
@@ -358,13 +381,51 @@
       });
     });
   </script>
-<script src="https://www.paypal.com/sdk/js?client-id=BAAprxqOUwqicHofWyIxq6-9B8-AfUDpTQsAHIGNU6d3CWpI63TfvugX6h2HRLNR3jMOvDjjjFybAlcoT0&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 <script>
-  if(window.paypal && paypal.HostedButtons){
-    paypal.HostedButtons({
-      hostedButtonId: "VCN7JV55JBZR2",
-    }).render("#paypal-container-VCN7JV55JBZR2");
-  }
+  (function(){
+    var form = document.getElementById('form-compra-limpiezas');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-limpiezas');
+    var botones = document.getElementById('botones-pago-limpiezas');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.style.display = 'none';
+          botones.style.display = 'flex';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Continuar al pago';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Continuar al pago';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
+
+  (function(){
+    var btn = document.getElementById('btn-solicitar-limpiezas');
+    var target = document.getElementById('pago-limpiezas');
+    if(!btn || !target) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.style.transition = 'box-shadow 0.3s ease';
+      target.style.boxShadow = '0 0 0 3px var(--violet-2)';
+      setTimeout(function(){ target.style.boxShadow = 'none'; }, 1500);
+    });
+  })();
 </script>
 </body>
 </html>

@@ -234,27 +234,44 @@
         <div class="card">
           <img src="https://http2.mlstatic.com/D_NQ_NP_945172-MLA83087292079_032025-O.webp" alt="Terapia de Radiónica Avanzada" style="width: 100%; border-radius: 4px;">
           
-          <div style="background: var(--bg-gradient); padding: 12px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px;">
+          <div id="pago-radionica" style="background: var(--bg-gradient); padding: 14px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px;">
             <div style="text-align: center; margin-bottom: 8px;">
               <span style="font-size: 12px; font-weight: 600; color: #777; text-transform: uppercase;">Sesión Personalizada — Promo</span>
             </div>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
               <div style="text-align: center; flex: 1; min-width: 125px;">
                 <span style="font-size: 16px;">🇦🇷</span>
                 <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde Argentina</div>
                 <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$86.000 <small style="font-size: 11px;">ARS</small></h3>
-                <a target="_blank" href="https://mpago.li/2MZqnxH" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-top: 2px;">Pagar con Mercado Pago</a>
               </div>
               <div style="text-align: center; flex: 1; min-width: 125px; border-left: 1px solid rgba(0,0,0,0.1);">
                 <span style="font-size: 16px;">🌍</span>
                 <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde el exterior</div>
                 <div style="font-size: 12px; text-decoration: line-through; color: #999; margin-top: 2px;">$89 USD</div>
-                <div id="paypal-container-NXKXDU9H6F72E" style="margin-top: 4px; transform: scale(0.82); transform-origin: top center;"></div>
+                <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$57 <small style="font-size: 11px;">USD</small></h3>
               </div>
             </div>
-            <p style="font-size: 11px; color: #888; margin-top: 8px; line-height: 1.2; text-align: center;">
+            <p style="font-size: 11px; color: #888; margin: 0 0 10px; line-height: 1.2; text-align: center;">
               *El valor puede variar según la complejidad del caso y cantidad de sesiones necesarias.
             </p>
+
+            <form id="form-compra-radionica" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 12px;">
+              <input type="hidden" name="_subject" value="Nueva solicitud - Radiónica Avanzada">
+              <p style="font-size: 12px; color: #444; text-align: center; margin: 0 0 8px;">Completá tus datos para continuar al pago:</p>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <input type="email" name="email" placeholder="Tu email" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Continuar al pago</button>
+              <p id="form-error-radionica" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+            </form>
+
+            <div id="botones-pago-radionica" style="display: none; gap: 8px; flex-wrap: wrap; justify-content: center; padding-top: 4px;">
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a target="_blank" href="https://mpago.li/2MZqnxH" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
+              </div>
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a target="_blank" href="https://www.paypal.com/ncp/payment/NXKXDU9H6F72E" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
+              </div>
+            </div>
           </div>
 
           <div style="background: var(--muted); padding: 20px; margin-top: 15px; border-radius: 4px;">
@@ -289,11 +306,10 @@
           </div>
 
           <div class="text-center" style="margin-top: 25px;">
-           <a target="_blank" 
-   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Me%20interesa%20realizar%20una%20evaluaci%C3%B3n%20personalizada%20para%20el%20servicio%20de%20Radionica%20Avanzada.%20%C2%BFC%C3%B3mo%20podemos%20coordinar?" 
+           <a href="#pago-radionica" id="btn-solicitar-radionica"
    class="btn-primary" 
    style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 350px; margin: 0 auto; text-decoration: none;">
-   <i class="fab fa-whatsapp"></i> SOLICITAR EVALUACIÓN PERSONALIZADA
+   <i class="fas fa-arrow-up"></i> SOLICITAR EVALUACIÓN PERSONALIZADA
 </a>
           </div>
 
@@ -352,13 +368,51 @@
       });
     });
   </script>
-<script src="https://www.paypal.com/sdk/js?client-id=BAAprxqOUwqicHofWyIxq6-9B8-AfUDpTQsAHIGNU6d3CWpI63TfvugX6h2HRLNR3jMOvDjjjFybAlcoT0&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 <script>
-  if(window.paypal && paypal.HostedButtons){
-    paypal.HostedButtons({
-      hostedButtonId: "NXKXDU9H6F72E",
-    }).render("#paypal-container-NXKXDU9H6F72E");
-  }
+  (function(){
+    var form = document.getElementById('form-compra-radionica');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-radionica');
+    var botones = document.getElementById('botones-pago-radionica');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.style.display = 'none';
+          botones.style.display = 'flex';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Continuar al pago';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Continuar al pago';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
+
+  (function(){
+    var btn = document.getElementById('btn-solicitar-radionica');
+    var target = document.getElementById('pago-radionica');
+    if(!btn || !target) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.style.transition = 'box-shadow 0.3s ease';
+      target.style.boxShadow = '0 0 0 3px var(--violet-2)';
+      setTimeout(function(){ target.style.boxShadow = 'none'; }, 1500);
+    });
+  })();
 </script>
 </body>
 </html>
