@@ -366,6 +366,13 @@
     form.addEventListener('submit', function(e){
       e.preventDefault();
       errorMsg.style.display = 'none';
+      var fechaNac = form.querySelector('[name="fecha_nacimiento"]');
+      if(fechaNac && !fechaNac.value){
+        errorMsg.textContent = 'Por favor completá la fecha de nacimiento antes de continuar.';
+        errorMsg.style.display = 'block';
+        fechaNac.focus();
+        return;
+      }
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
@@ -384,11 +391,13 @@
         } else {
           btn.disabled = false;
           btn.textContent = 'Continuar al pago';
+          errorMsg.textContent = 'Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.';
           errorMsg.style.display = 'block';
         }
       }).catch(function(){
         btn.disabled = false;
         btn.textContent = 'Continuar al pago';
+        errorMsg.textContent = 'Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.';
         errorMsg.style.display = 'block';
       });
     });
