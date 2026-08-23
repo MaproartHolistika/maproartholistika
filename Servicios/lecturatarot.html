@@ -242,11 +242,17 @@
           </div>
 
           <div id="pago-tarot" style="background: var(--bg-gradient); padding: 14px; margin-top: 0; border: 1px solid var(--muted); border-radius: 4px;">
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
+            <div style="text-align: center; margin-bottom: 10px;">
+              <p style="font-size: 13px; font-weight: 600; color: var(--violet-1); margin: 0 0 6px;">¿Tenés un código de descuento?</p>
+              <input type="text" id="codigo-tarot" placeholder="Escribilo acá" style="width: 65%; padding: 6px 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 12px;">
+              <button type="button" id="btn-codigo-tarot" style="padding: 6px 10px; background: #666; color: #fff; border: none; border-radius: 4px; font-size: 12px; cursor: pointer;">Aplicar</button>
+              <p id="codigo-mensaje-tarot" style="display: none; font-size: 12px; margin: 6px 0 0; font-weight: 600;"></p>
+            </div>
+            <div id="precios-tarot" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
               <div style="text-align: center; flex: 1; min-width: 125px;">
                 <span style="font-size: 16px;">🇦🇷</span>
                 <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde Argentina</div>
-                <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$60.000 <small style="font-size: 11px;">ARS</small></h3>
+                <h3 id="precio-ars-tarot" style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$60.000 <small style="font-size: 11px;">ARS</small></h3>
               </div>
               <div style="text-align: center; flex: 1; min-width: 125px; border-left: 1px solid rgba(0,0,0,0.1);">
                 <span style="font-size: 16px;">🌍</span>
@@ -370,7 +376,11 @@
       }).then(function(response){
         if(response.ok){
           form.style.display = 'none';
-          botones.style.display = 'flex';
+          if(window.tarotCodigoGratis && window.mostrarTurnoTarot){
+            window.mostrarTurnoTarot();
+          } else {
+            botones.style.display = 'flex';
+          }
         } else {
           btn.disabled = false;
           btn.textContent = 'Continuar al pago';
@@ -395,6 +405,7 @@
       bloque.style.display = 'block';
       try { localStorage.setItem(STORAGE_KEY, '1'); } catch(e){}
     }
+    window.mostrarTurnoTarot = mostrarTurno;
 
     if(localStorage.getItem(STORAGE_KEY) === '1'){
       mostrarTurno();
@@ -403,6 +414,39 @@
     ['link-mp-tarot', 'link-paypal-tarot'].forEach(function(id){
       var link = document.getElementById(id);
       if(link) link.addEventListener('click', mostrarTurno);
+    });
+  })();
+
+  (function(){
+    window.tarotCodigoGratis = false;
+    var btn = document.getElementById('btn-codigo-tarot');
+    var input = document.getElementById('codigo-tarot');
+    var mensaje = document.getElementById('codigo-mensaje-tarot');
+    var precios = document.getElementById('precios-tarot');
+    var precioArs = document.getElementById('precio-ars-tarot');
+    var linkMp = document.getElementById('link-mp-tarot');
+    if(!btn) return;
+
+    btn.addEventListener('click', function(){
+      var codigo = input.value.trim().toUpperCase().replace(/\s+/g, ' ');
+      if(codigo === 'BONUSGRATIS'){
+        window.tarotCodigoGratis = true;
+        if(precios) precios.style.display = 'none';
+        mensaje.style.color = '#2e7d32';
+        mensaje.textContent = '¡Código válido! Tu lectura es un regalo 🎁 Completá tus datos abajo.';
+        mensaje.style.display = 'block';
+      } else if(codigo === 'DESCUENTO AMIGA 50% OFF'){
+        window.tarotCodigoGratis = false;
+        if(precioArs) precioArs.innerHTML = '$30.000 <small style="font-size: 11px;">ARS</small>';
+        if(linkMp) linkMp.href = 'https://mpago.la/24WZbBD';
+        mensaje.style.color = '#2e7d32';
+        mensaje.textContent = '¡Código válido! 50% de descuento aplicado 🎉';
+        mensaje.style.display = 'block';
+      } else {
+        mensaje.style.color = '#c0392b';
+        mensaje.textContent = 'Código no válido.';
+        mensaje.style.display = 'block';
+      }
     });
   })();
 </script>
