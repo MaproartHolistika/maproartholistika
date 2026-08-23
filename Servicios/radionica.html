@@ -266,10 +266,10 @@
 
             <div id="botones-pago-radionica" style="display: none; gap: 8px; flex-wrap: wrap; justify-content: center; padding-top: 4px;">
               <div style="text-align: center; flex: 1; min-width: 115px;">
-                <a target="_blank" href="https://mpago.li/2MZqnxH" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
+                <a id="link-mp-radionica" target="_blank" href="https://mpago.li/2MZqnxH" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
               </div>
               <div style="text-align: center; flex: 1; min-width: 115px;">
-                <a target="_blank" href="https://www.paypal.com/ncp/payment/NXKXDU9H6F72E" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
+                <a id="link-paypal-radionica" target="_blank" href="https://www.paypal.com/ncp/payment/NXKXDU9H6F72E" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
               </div>
             </div>
           </div>
@@ -319,14 +319,17 @@
             </a>
           </div>
 
-          <p style="font-size: 15px; font-weight: 600; color: #222; text-align: center; margin-top: 16px;">¿Ya pagaste? Elegí tu día y horario:</p>
-          <div class="text-center" style="margin-top: 8px;">
-            <a target="_blank" 
-   href="https://calendar.app.google/hDdZrhqbo2ZeJwLw5" 
-   class="btn-primary" 
-   style="width: 100%; max-width: 300px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
-   <i class="fas fa-calendar-check"></i> QUIERO RESERVAR MI TURNO
-</a>
+          <p id="reservar-turno-placeholder-radionica" style="font-size: 13px; color: #888; text-align: center; margin-top: 16px;">Después de pagar, vas a poder elegir tu día y horario acá.</p>
+          <div id="reservar-turno-radionica" style="display: none;">
+            <p style="font-size: 15px; font-weight: 600; color: #222; text-align: center; margin-top: 16px;">¡Gracias! Elegí tu día y horario:</p>
+            <div class="text-center" style="margin-top: 8px;">
+              <a target="_blank" 
+     href="https://calendar.app.google/hDdZrhqbo2ZeJwLw5" 
+     class="btn-primary" 
+     style="width: 100%; max-width: 300px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
+     <i class="fas fa-calendar-check"></i> QUIERO RESERVAR MI TURNO
+  </a>
+            </div>
           </div>
         </div>
 
@@ -411,6 +414,28 @@
       target.style.transition = 'box-shadow 0.3s ease';
       target.style.boxShadow = '0 0 0 3px var(--violet-2)';
       setTimeout(function(){ target.style.boxShadow = 'none'; }, 1500);
+    });
+  })();
+
+  (function(){
+    var STORAGE_KEY = 'pago_iniciado_radionica';
+    var placeholder = document.getElementById('reservar-turno-placeholder-radionica');
+    var bloque = document.getElementById('reservar-turno-radionica');
+    if(!bloque) return;
+
+    function mostrarTurno(){
+      if(placeholder) placeholder.style.display = 'none';
+      bloque.style.display = 'block';
+      try { localStorage.setItem(STORAGE_KEY, '1'); } catch(e){}
+    }
+
+    if(localStorage.getItem(STORAGE_KEY) === '1'){
+      mostrarTurno();
+    }
+
+    ['link-mp-radionica', 'link-paypal-radionica'].forEach(function(id){
+      var link = document.getElementById(id);
+      if(link) link.addEventListener('click', mostrarTurno);
     });
   })();
 </script>
