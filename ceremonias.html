@@ -239,6 +239,26 @@
               "No es solo un evento, es un portal de transformación."
             </p>
           </div>
+
+          <div style="background: var(--bg-gradient); padding: 14px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px;">
+            <form id="form-consulta-ceremonia" style="padding-top: 4px;">
+              <input type="hidden" name="_subject" value="Nueva consulta - Ceremonia Holística">
+              <p style="font-size: 12px; color: #444; text-align: center; margin: 0 0 8px;">Completá tus datos para continuar por WhatsApp:</p>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <input type="email" name="email" placeholder="Tu email" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Continuar</button>
+              <p id="form-error-ceremonia" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+            </form>
+
+            <div id="boton-ceremonia" style="display: none; text-align: center;">
+              <a target="_blank" 
+   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Me%20contacto%20para%20consultar%20el%20presupuesto%20y%20disponibilidad%20para%20una%20ceremonia%20personalizada.%20%C2%BFC%C3%B3mo%20podemos%20coordinar?" 
+   class="btn-primary" 
+   style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 15px; text-decoration: none;">
+   <i class="fab fa-whatsapp"></i> SOLICITAR MI CEREMONIA
+</a>
+            </div>
+          </div>
         </div>
 
         <div class="content" style="text-align: left;">
@@ -267,15 +287,6 @@
              <span style="color: var(--violet-1); font-weight: bold; font-size: 14px; text-transform: uppercase;">
                 <i class="fas fa-sparkles"></i> ¿No ves la tuya? Contame qué necesitás y la armamos juntas
              </span>
-          </div>
-
-          <div class="text-center" style="margin-top: 20px;">
-           <a target="_blank" 
-   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Me%20contacto%20para%20consultar%20el%20presupuesto%20y%20disponibilidad%20para%20una%20ceremonia%20personalizada.%20%C2%BFC%C3%B3mo%20podemos%20coordinar?" 
-   class="btn-primary" 
-   style="width: 100%; max-width: 400px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 18px; text-decoration: none;">
-   <i class="fab fa-whatsapp"></i> SOLICITAR MI CEREMONIA
-</a>
           </div>
         </div>
 
@@ -317,5 +328,38 @@
       });
     });
   </script>
+<script>
+  (function(){
+    var form = document.getElementById('form-consulta-ceremonia');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-ceremonia');
+    var boton = document.getElementById('boton-ceremonia');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.style.display = 'none';
+          boton.style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Continuar';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Continuar';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
+</script>
 </body>
 </html>
