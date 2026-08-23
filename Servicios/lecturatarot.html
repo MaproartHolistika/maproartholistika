@@ -376,6 +376,10 @@
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
+      var subjectField = form.querySelector('[name="_subject"]');
+      if(subjectField){
+        subjectField.value = 'Nueva solicitud - Lectura de Tarot - Nacimiento: ' + fechaNac.value;
+      }
       fetch('https://formspree.io/f/mdenjzpg', {
         method: 'POST',
         body: new FormData(form),
