@@ -428,14 +428,14 @@
     if(!btn) return;
 
     btn.addEventListener('click', function(){
-      var codigo = input.value.trim().toUpperCase().replace(/\s+/g, ' ');
+      var codigo = input.value.trim().toUpperCase().replace(/\s+/g, '');
       if(codigo === 'BONUSGRATIS'){
         window.tarotCodigoGratis = true;
         if(precios) precios.style.display = 'none';
         mensaje.style.color = '#2e7d32';
         mensaje.textContent = '¡Código válido! Tu lectura es un regalo 🎁 Completá tus datos abajo.';
         mensaje.style.display = 'block';
-      } else if(codigo === 'DESCUENTO AMIGA 50% OFF'){
+      } else if(codigo === 'DESCUENTOAMIGA50%OFF'){
         window.tarotCodigoGratis = false;
         if(precioArs) precioArs.innerHTML = '$30.000 <small style="font-size: 11px;">ARS</small>';
         if(linkMp) linkMp.href = 'https://mpago.la/24WZbBD';
