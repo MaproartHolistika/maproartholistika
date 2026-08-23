@@ -234,6 +234,13 @@
         <div class="card">
           <img src="https://birthdate.co/cdn/shop/articles/fortune-teller-hands-holding-sun-card.jpg?v=1666656823&width=786" alt="Sesión de Tarot Holístico" style="width: 100%; border-radius: 4px; margin-bottom: 12px;">
 
+          <div style="background: var(--muted); padding: 12px 16px; border-radius: 4px; margin-bottom: 12px;">
+            <p style="margin-bottom: 0; font-size: 13px; text-align: center;">
+              <strong>Duración:</strong> 60 a 70 minutos.<br>
+              <strong>Modalidad:</strong> Online por Meet o videollamada de WhatsApp.
+            </p>
+          </div>
+
           <div id="pago-tarot" style="background: var(--bg-gradient); padding: 14px; margin-top: 0; border: 1px solid var(--muted); border-radius: 4px;">
             <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
               <div style="text-align: center; flex: 1; min-width: 125px;">
@@ -261,10 +268,10 @@
 
             <div id="botones-pago-tarot" style="display: none; gap: 8px; flex-wrap: wrap; justify-content: center; padding-top: 4px;">
               <div style="text-align: center; flex: 1; min-width: 115px;">
-                <a target="_blank" href="https://mpago.la/15An4dK" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
+                <a id="link-mp-tarot" target="_blank" href="https://mpago.la/15An4dK" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
               </div>
               <div style="text-align: center; flex: 1; min-width: 115px;">
-                <a target="_blank" href="https://www.paypal.com/ncp/payment/JX89M85K9KJG6" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
+                <a id="link-paypal-tarot" target="_blank" href="https://www.paypal.com/ncp/payment/JX89M85K9KJG6" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
               </div>
             </div>
           </div>
@@ -292,21 +299,18 @@
             <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 155px; flex-shrink: 0; color: #000;"><i class="fas fa-pen-fancy"></i> Grafología:</strong> <span style="color: #6a1b9a;">Estudio tu letra para revelar aspectos clave de tu personalidad — una herramienta poco común que suma profundidad a cada lectura.</span></li>
           </ul>
 
-          <div class="card" style="margin-top: 30px; border-left: 4px solid var(--violet-2);">
-            <p style="margin-bottom: 0; font-size: 15px;">
-              <strong>Duración:</strong> 60 a 70 minutos.<br>
-              <strong>Modalidad:</strong> Online por Meet o videollamada de WhatsApp.
-            </p>
+          <p id="reservar-turno-placeholder-tarot" style="font-size: 13px; color: #888; text-align: center; margin-top: 16px;">Después de pagar, vas a poder elegir tu día y horario acá.</p>
+          <div id="reservar-turno-tarot" style="display: none;">
+            <p style="font-size: 15px; font-weight: 600; color: #222; text-align: center; margin-top: 16px;">¡Gracias! Elegí tu día y horario:</p>
+            <div class="text-center" style="margin-top: 8px;">
+              <a target="_blank" 
+     href="https://calendar.app.google/hDdZrhqbo2ZeJwLw5" 
+     class="btn-primary" 
+     style="width: 100%; max-width: 300px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
+     <i class="fas fa-calendar-check"></i> QUIERO RESERVAR MI TURNO
+  </a>
+            </div>
           </div>
-
-          <p style="font-size: 15px; font-weight: 600; color: #222; text-align: center; margin-top: 16px;">¿Ya pagaste? Elegí tu día y horario:</p>
-          <div class="text-center" style="margin-top: 8px;">
-            <a target="_blank" 
-   href="https://calendar.app.google/hDdZrhqbo2ZeJwLw5" 
-   class="btn-primary" 
-   style="width: 100%; max-width: 300px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
-   <i class="fas fa-calendar-check"></i> QUIERO RESERVAR MI TURNO
-</a>         </div>
         </div>
 
       </div>
@@ -377,6 +381,28 @@
         btn.textContent = 'Continuar al pago';
         errorMsg.style.display = 'block';
       });
+    });
+  })();
+
+  (function(){
+    var STORAGE_KEY = 'pago_iniciado_tarot';
+    var placeholder = document.getElementById('reservar-turno-placeholder-tarot');
+    var bloque = document.getElementById('reservar-turno-tarot');
+    if(!bloque) return;
+
+    function mostrarTurno(){
+      if(placeholder) placeholder.style.display = 'none';
+      bloque.style.display = 'block';
+      try { localStorage.setItem(STORAGE_KEY, '1'); } catch(e){}
+    }
+
+    if(localStorage.getItem(STORAGE_KEY) === '1'){
+      mostrarTurno();
+    }
+
+    ['link-mp-tarot', 'link-paypal-tarot'].forEach(function(id){
+      var link = document.getElementById(id);
+      if(link) link.addEventListener('click', mostrarTurno);
     });
   })();
 </script>
