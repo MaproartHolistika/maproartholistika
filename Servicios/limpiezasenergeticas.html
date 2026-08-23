@@ -268,6 +268,24 @@
                 <option value="Hogar">Limpieza de Hogar</option>
                 <option value="Negocio">Limpieza de Negocios</option>
               </select>
+
+              <div id="campo-persona" style="display: none;">
+                <label for="fecha-nac-limpieza" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Fecha de nacimiento</label>
+                <input type="date" id="fecha-nac-limpieza" name="fecha_nacimiento" style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              </div>
+
+              <div id="campo-hogar" style="display: none;">
+                <label for="direccion-hogar" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Dirección</label>
+                <input type="text" id="direccion-hogar" name="direccion" placeholder="Dirección del hogar" style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              </div>
+
+              <div id="campo-negocio" style="display: none;">
+                <label for="nombre-negocio" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Nombre del negocio</label>
+                <input type="text" id="nombre-negocio" name="nombre_negocio" placeholder="Nombre del negocio" style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+                <label for="direccion-negocio" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Dirección</label>
+                <input type="text" id="direccion-negocio" name="direccion_negocio" placeholder="Dirección del negocio" style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              </div>
+
               <input type="email" name="email" placeholder="Tu email" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
               <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Continuar al pago</button>
               <p id="form-error-limpiezas" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
@@ -283,10 +301,10 @@
             </div>
           </div>
 
-          <div style="background: var(--muted); padding: 15px; margin-top: 15px; border-radius: 4px; text-align: center;">
-            <p style="font-size: 14px; margin-bottom: 0;">
-              <strong>Diagnóstico manual preciso y emisión de frecuencias correctoras.</strong>
-            </p>
+          <div style="text-align: center; margin-top: 15px;">
+            <a href="https://wa.me/542645813828?text=Hola%20Ivana!%20Tengo%20una%20consulta%20sobre%20la%20Limpieza%20Energ%C3%A9tica%20antes%20de%20anotarme." target="_blank" style="display: inline-block; background: #25D366; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 13px; font-weight: 600;">
+              <i class="fab fa-whatsapp"></i> Consultas antes de pagar
+            </a>
           </div>
         </div>
 
@@ -322,14 +340,8 @@
             <a href="#pago-limpiezas" id="btn-solicitar-limpiezas"
    class="btn-primary" 
    style="width: 100%; max-width: 350px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
-   <i class="fas fa-arrow-up"></i> SOLICITAR MI DIAGNÓSTICO
+   <i class="fas fa-arrow-up"></i> SOLICITAR LIMPIEZA
 </a>
-          </div>
-
-          <div style="text-align: center; margin-top: 14px;">
-            <a href="https://wa.me/542645813828?text=Hola%20Ivana!%20Tengo%20una%20consulta%20sobre%20la%20Limpieza%20Energ%C3%A9tica%20antes%20de%20anotarme." target="_blank" style="display: inline-block; background: #25D366; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 13px; font-weight: 600;">
-              <i class="fab fa-whatsapp"></i> Consultas antes de pagar
-            </a>
           </div>
 
           <p style="font-size: 15px; font-weight: 600; color: #222; text-align: center; margin-top: 16px;">¿Ya pagaste? Elegí tu día y horario:</p>
@@ -381,6 +393,31 @@
       });
     });
   </script>
+<script>
+  (function(){
+    var select = document.getElementById('tipo-limpieza');
+    if(!select) return;
+    var campos = {
+      Persona: document.getElementById('campo-persona'),
+      Hogar: document.getElementById('campo-hogar'),
+      Negocio: document.getElementById('campo-negocio')
+    };
+    var inputsPorCampo = {
+      Persona: ['fecha-nac-limpieza'],
+      Hogar: ['direccion-hogar'],
+      Negocio: ['nombre-negocio', 'direccion-negocio']
+    };
+    select.addEventListener('change', function(){
+      Object.keys(campos).forEach(function(key){
+        var mostrar = (select.value === key);
+        campos[key].style.display = mostrar ? 'block' : 'none';
+        inputsPorCampo[key].forEach(function(id){
+          document.getElementById(id).required = mostrar;
+        });
+      });
+    });
+  })();
+</script>
 <script>
   (function(){
     var form = document.getElementById('form-compra-limpiezas');
