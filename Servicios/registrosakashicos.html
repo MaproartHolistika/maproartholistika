@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Maproart Holístika - Despierta tu luz interior con terapia holística, tarot y cursos online.">
+  <title>Registros Akáshicos con Tarot - Maproart Holístika</title>
+  <link rel="icon" href="https://via.placeholder.com/32x32?text=MH">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+    
+      color: #222;
+    }
+
+    /* HEADER */
+   header.site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-shadow: -4px 0 10px 0 #e5e5e5;
+      padding: 24px 56px;
+      z-index: 100;
+    }
+
+    .section {
+      padding: 160px 20px 80px;
+      text-align: center;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .brand {
+      color: #000000;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ab47bc;
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      color: #808080;
+      font-size: 22px;
+    }
+
+    /* MAIN */
+    main.section {
+      padding: 160px 20px 80px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #6a1b9a;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 0 auto 50px;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 28px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h3 {
+      color: #6a1b9a;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #6a1b9a, #ab47bc);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: block;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer.site-footer {
+      background: linear-gradient(135deg, #6a1b9a, #4a148c);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer a {
+      color: #ffeaa7;
+      text-decoration: none;
+    }
+
+    /* MENU RESPONSIVO */
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.96);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      gap: 26px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .nav-links.open a {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .nav-links.open a:hover {
+      color: #ab47bc;
+      transform: scale(1.05);
+    }
+
+    .grid-sm{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .burger { display: block; }
+    }
+
+    #servicios .grid {
+      align-items: start;
+    }
+    #servicios .grid {
+      align-items: start;
+    }
+  </style>
+</head>
+<body>
+   <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="../index.html">
+        <img src="../Imagenes/Logo.jpg" alt="Logo Maproart Holístika">
+        <span>Maproart Holístika</span>
+      </a>
+      <button id="btn-menu" class="burger" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../servicios.html" class="active">Servicios</a></li>
+        <li><a href="../cursos.html">Cursos</a></li>
+        <li><a href="../ceremonias.html">Ceremonias</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+  <section class="section services bg-dual-energy" id="servicios">
+    <div class="container">
+      
+      <h2 class="text-center">Registros Akáshicos con Tarot</h2>
+
+      <div class="grid">
+        
+        <div class="card">
+          <img src="../Imagenes/registrosakashicos.jpg" alt="Registros Akáshicos con Tarot" style="width: 100%; border-radius: 4px; margin-bottom: 12px; margin-top: 0;">
+
+          <div style="background: var(--muted); padding: 12px 16px; border-radius: 4px; margin-bottom: 12px;">
+            <p style="margin-bottom: 0; font-size: 13px; text-align: center;">
+              <strong>Duración:</strong> 60 a 70 minutos.<br>
+              <strong>Modalidad:</strong> Online por Meet o videollamada de WhatsApp.
+            </p>
+          </div>
+
+          <div id="pago-akashicos" style="background: var(--bg-gradient); padding: 14px; margin-top: 0; border: 1px solid var(--muted); border-radius: 4px;">
+            <div id="precios-akashicos" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px;">
+              <div style="text-align: center; flex: 1; min-width: 125px;">
+                <span style="font-size: 16px;">🇦🇷</span>
+                <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde Argentina</div>
+                <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;"><span style="text-decoration: line-through; font-size: 12px; color: #999;">$60.000</span> $43.000 <small style="font-size: 11px;">ARS</small></h3>
+              </div>
+              <div style="text-align: center; flex: 1; min-width: 125px; border-left: 1px solid rgba(0,0,0,0.1);">
+                <span style="font-size: 16px;">🌍</span>
+                <div style="font-size: 10.5px; font-weight: 600; color: #444; text-transform: uppercase; margin-top: 2px;">Pagás desde el exterior</div>
+                <h3 style="color: var(--violet-1); margin: 2px 0; font-size: 16px;">$43 <small style="font-size: 11px;">USD</small></h3>
+              </div>
+            </div>
+
+            <form id="form-compra-akashicos" style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 12px;">
+              <input type="hidden" name="_subject" value="Nueva solicitud - Registros Akáshicos con Tarot">
+              <p style="font-size: 12px; color: #444; text-align: center; margin: 0 0 8px;">Completá tus datos para continuar al pago:</p>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <label for="fecha-nac-akashicos" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Fecha de nacimiento</label>
+              <input type="date" id="fecha-nac-akashicos" name="fecha_nacimiento" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <input type="email" name="email" placeholder="Tu email" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <label for="motivo-akashicos" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Motivo de consulta / pregunta</label>
+              <textarea id="motivo-akashicos" name="motivo_consulta" placeholder="Contanos qué querés consultar..." rows="3" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box; resize: vertical;"></textarea>
+              <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Continuar al pago</button>
+              <p id="form-error-akashicos" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+            </form>
+
+            <div id="botones-pago-akashicos" style="display: none; gap: 8px; flex-wrap: wrap; justify-content: center; padding-top: 4px;">
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a id="link-mp-akashicos" target="_blank" href="https://mpago.la/1oqRo18" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
+              </div>
+              <div style="text-align: center; flex: 1; min-width: 115px;">
+                <a id="link-paypal-akashicos" target="_blank" href="https://www.paypal.com/ncp/payment/6Q2VLHFZE9PW4" style="display: inline-block; background: #0070BA; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con PayPal</a>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="https://wa.me/542645813828?text=Hola%20Ivana!%20Tengo%20una%20consulta%20sobre%20los%20Registros%20Ak%C3%A1shicos%20con%20Tarot%20antes%20de%20anotarme." target="_blank" style="display: inline-block; background: #25D366; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 13px; font-weight: 600;">
+              <i class="fab fa-whatsapp"></i> ¿Querés consultar antes de pagar? Clic acá
+            </a>
+          </div>
+
+          <p class="blessing text-center" style="margin-top: 10px; margin-bottom: 0; color: var(--violet-2);"><em>🙌🏼 Luz y bendiciones</em></p>
+        </div>
+
+        <div class="content" style="text-align: left;">
+          <p style="margin: 0 0 16px;">
+            Una sesión que combina la sabiduría de los Registros Akáshicos —la memoria completa de tu alma, donde se guarda tu viaje entre vidas pasadas, presente y potenciales futuros— con el Tarot como traductor visual. No es adivinación: es orientación espiritual y autoconocimiento.
+          </p>
+
+          <div style="background: var(--muted); padding: 14px 18px; margin-bottom: 20px; border-radius: 4px;">
+            <p style="margin-bottom: 0; font-size: 13px; text-align: center; color: #444;">
+              <strong>Te ayuda a lograr:</strong> claridad en tu propósito de vida, comprensión del origen de tus patrones (karma), sanación emocional y decisiones tomadas con conciencia.
+            </p>
+          </div>
+
+          <h3 style="color: var(--violet-1); margin-bottom: 20px;">¿Cómo es la sesión?</h3>
+          
+          <ul class="tools-list">
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-comments"></i> Preparación e Intención:</strong> <span style="color: #6a1b9a;">Conversamos tus dudas, bloqueos o las áreas de tu vida que querés consultar, para enfocar la sesión en lo que realmente necesitás.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-door-open"></i> Apertura del Campo Akáshico:</strong> <span style="color: #6a1b9a;">Con una meditación guiada, se abre la conexión con tus Guías y Maestros Espirituales, pidiendo su permiso para acceder a tu registro.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-hand-sparkles"></i> Proyección sobre las Cartas:</strong> <span style="color: #6a1b9a;">Tu propio campo energético "elige" las cartas — el Tarot actúa como pantalla visual de los mensajes akáshicos.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-eye"></i> Interpretación Canalizada:</strong> <span style="color: #6a1b9a;">Cada carta se interpreta a la luz de los mensajes canalizados en el momento, no de forma tradicional o memorizada.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-key"></i> Bloqueos y Consejos Concretos:</strong> <span style="color: #6a1b9a;">Identificamos causas raíz — creencias limitantes, lealtades familiares, lecciones pendientes — y te llevás pautas concretas para transformarlas.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-dove"></i> Cierre e Integración:</strong> <span style="color: #6a1b9a;">Una lectura final de integración, y una oración de cierre y agradecimiento a los seres de luz.</span></li>
+          </ul>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 155px; flex-shrink: 0; color: #000;"><i class="fas fa-question-circle"></i> 5 preguntas:</strong> <span style="color: #6a1b9a;">Respuestas puntuales a lo que más te inquieta, con la misma profundidad terapéutica de una lectura completa.</span></li>
+          </ul>
+
+          <p id="reservar-turno-placeholder-akashicos" style="font-size: 13px; color: #444; font-weight: 600; text-align: center; margin-top: 16px;">Después de pagar, vas a poder elegir tu día y horario acá.</p>
+          <div id="reservar-turno-akashicos" style="display: none;">
+            <p style="font-size: 15px; font-weight: 600; color: #222; text-align: center; margin-top: 16px;">¡Gracias! Elegí tu día y horario:</p>
+            <div class="text-center" style="margin-top: 8px;">
+              <a target="_blank" 
+     href="https://calendar.app.google/hDdZrhqbo2ZeJwLw5" 
+     class="btn-primary" 
+     style="width: 100%; max-width: 300px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px;">
+     <i class="fas fa-calendar-check"></i> QUIERO RESERVAR MI TURNO
+  </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+  
+  <footer class="site-footer">
+    <p>&copy; Maproart Holístika – Ivana Alejandra Molina</p>
+    <p>Email: <a href="mailto:maproartholistika@gmail.com">maproartholistika@gmail.com</a> | WhatsApp: <a href="https://wa.me/542645813828">+54 264 581 3828</a></p>
+    <div class="socials" aria-hidden="false">
+        <a target="_blank" href="https://www.instagram.com/maproart.holistika" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a target="_blank" href="https://www.facebook.com/MaproartHolístika" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        <a target="_blank" href="https://www.tiktok.com/@maproart.holistika" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+      </div>
+  </footer>
+  
+   <script>
+    // menú hamburguesa ↔ cruz
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('btn-menu');
+      const nav = document.getElementById('nav-links');
+      const icon = btn.querySelector('i');
+
+      btn.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        btn.classList.toggle('open');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-times');
+        });
+      });
+    });
+  </script>
+<script>
+  (function(){
+    var form = document.getElementById('form-compra-akashicos');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-akashicos');
+    var botones = document.getElementById('botones-pago-akashicos');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      var fechaNac = form.querySelector('[name="fecha_nacimiento"]');
+      if(fechaNac && !fechaNac.value){
+        errorMsg.textContent = 'Por favor completá la fecha de nacimiento antes de continuar.';
+        errorMsg.style.display = 'block';
+        fechaNac.focus();
+        return;
+      }
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      var subjectField = form.querySelector('[name="_subject"]');
+      if(subjectField){
+        subjectField.value = 'Nueva solicitud - Registros Akáshicos con Tarot - Nacimiento: ' + fechaNac.value;
+      }
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.style.display = 'none';
+          botones.style.display = 'flex';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Continuar al pago';
+          errorMsg.textContent = 'Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Continuar al pago';
+        errorMsg.textContent = 'Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
+
+  (function(){
+    var STORAGE_KEY = 'pago_iniciado_akashicos';
+    var placeholder = document.getElementById('reservar-turno-placeholder-akashicos');
+    var bloque = document.getElementById('reservar-turno-akashicos');
+    if(!bloque) return;
+
+    function mostrarTurno(){
+      if(placeholder) placeholder.style.display = 'none';
+      bloque.style.display = 'block';
+      try { localStorage.setItem(STORAGE_KEY, '1'); } catch(e){}
+    }
+
+    if(localStorage.getItem(STORAGE_KEY) === '1'){
+      mostrarTurno();
+    }
+
+    ['link-mp-akashicos', 'link-paypal-akashicos'].forEach(function(id){
+      var link = document.getElementById(id);
+      if(link) link.addEventListener('click', mostrarTurno);
+    });
+  })();
+</script>
+</body>
+</html>
