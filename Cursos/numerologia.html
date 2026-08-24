@@ -234,11 +234,6 @@
         <div class="card">
           <img src="../Imagenes/cursonumerologia.jpg" alt="Curso de Numerología Esotérica" style="width: 100%; border-radius: 4px; margin-top: 0;">
           
-          <div style="background: var(--bg-gradient); padding: 20px; margin-top: 15px; border: 1px solid var(--muted); text-align: center; border-radius: 4px;">
-            <span style="font-size: 13px; font-weight: 600; color: #777; text-transform: uppercase;">Inversión Mensual</span>
-            <h3 style="font-size: 32px; color: var(--violet-1); margin: 5px 0;">$43.000 <small style="font-size: 14px;">ARS</small></h3>
-          </div>
-
           <div style="background: var(--muted); padding: 20px; margin-top: 15px; border-radius: 4px;">
             <ul class="tools-list" style="margin: 0;">
               <li style="display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 14px;"><strong style="white-space: nowrap; min-width: 100px; flex-shrink: 0; color: #000;"><i class="fas fa-wifi"></i> Modalidad:</strong> <span style="color: #6a1b9a;">Online (Clases en vivo)</span></li>
@@ -263,7 +258,7 @@
 
           <div class="card" style="margin-top: 30px; border-left: 4px solid var(--violet-2);">
             <p style="margin-bottom: 0; font-size: 15px;">
-                 <strong><i class="fas fa-calendar" style="color: var(--violet-2);"></i> Próximo Inicio:</strong> 23 de abril.<br>
+                <strong><i class="fas fa-calendar" style="color: var(--violet-2);"></i> Próximo lanzamiento:</strong> Octubre.<br>
               <strong>Ideal para:</strong> Quienes sienten curiosidad por los números, el esoterismo o el autoconocimiento — no se requieren conocimientos previos, se aprende desde cero.
             </p>
           </div>
@@ -274,15 +269,25 @@
              </span>
           </div>
 
-          <div class="grid-sm" style="margin-top: 20px;">
-            <a target="_blank" href="../Programas/PROGRAMA CURSO DE NUMEROLOGÍA ESOTÉRICA.pdf" class="btn-primary text-center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-              <i class="fas fa-file-pdf"></i> VER PROGRAMA
-            </a>
+          <div style="background: var(--bg-gradient); padding: 14px; margin-top: 20px; border: 1px solid var(--muted); border-radius: 4px;">
+            <form id="form-consulta-numerologia-curso">
+              <input type="hidden" name="_subject" value="Nueva consulta - Curso de Numerología">
+              <p style="font-size: 12px; color: #444; text-align: center; margin: 0 0 8px;">Dejanos tus datos y te contactamos con más información:</p>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <label for="fecha-nac-numerologia-curso" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Fecha de nacimiento</label>
+              <input type="date" id="fecha-nac-numerologia-curso" name="fecha_nacimiento" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Enviar</button>
+              <p id="form-error-numerologia-curso" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+              <p id="form-ok-numerologia-curso" style="display: none; color: #2e7d32; font-size: 12px; text-align: center; margin: 8px 0 0;">¡Gracias! Te vamos a contactar pronto.</p>
+            </form>
+          </div>
+
+          <div class="text-center" style="margin-top: 14px;">
             <a target="_blank" 
-   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Me%20interesa%20el%20curso%20de%20Numerolog%C3%ADa%20Esot%C3%A9rica.%20%C2%BFMe%20podr%C3%ADas%20dar%20m%C3%A1s%20info%20sobre%20el%20programa?" 
-   class="btn-primary text-center" 
-   style="background: var(--text); display: flex; align-items: center; justify-content: center; gap: 10px;">
-   <i class="fab fa-whatsapp"></i> INSCRIBIRME
+   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Tengo%20una%20consulta%20sobre%20el%20Curso%20de%20Numerolog%C3%ADa%20Esot%C3%A9rica." 
+   class="btn-primary" 
+   style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 350px; margin: 0 auto; text-decoration: none;">
+   <i class="fab fa-whatsapp"></i> Consultas por WhatsApp
 </a>
           </div>
         </div>
@@ -325,5 +330,41 @@
       });
     });
   </script>
+<script>
+  (function(){
+    var form = document.getElementById('form-consulta-numerologia-curso');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-numerologia-curso');
+    var okMsg = document.getElementById('form-ok-numerologia-curso');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      okMsg.style.display = 'none';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.reset();
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+          okMsg.style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Enviar';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
+</script>
 </body>
 </html>
