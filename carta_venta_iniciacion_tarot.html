@@ -368,12 +368,16 @@
   }
   .pay-option .pay-label{font-size:13.5px; letter-spacing:0.03em; color:var(--muted); font-weight:300;}
   .pay-option .pay-flag{font-size:26px;}
-  #paypal-container-BRUYNQCB5ZHZ2{width:100%; max-width:240px;}
   .btn-mp{
     background:#009EE3 !important; color:#fff !important; border:none !important;
     box-shadow:0 10px 24px -8px rgba(0,158,227,0.55) !important;
   }
   .btn-mp:hover{background:#0086c3 !important;}
+  .btn-paypal{
+    background:#0070BA !important; color:#fff !important; border:none !important;
+    box-shadow:0 10px 24px -8px rgba(0,112,186,0.55) !important;
+  }
+  .btn-paypal:hover{background:#005c99 !important;}
   .pay-trust{font-size:12px; color:var(--muted); font-weight:300; margin-top:2px; line-height:1.4;}
   @media(max-width:620px){
     .pay-options{grid-template-columns:1fr; max-width:320px;}
@@ -727,31 +731,54 @@
     <span class="eyebrow">Empezá hoy</span>
     <h2>Empezá tu Iniciación al Tarot</h2>
 
-    <div class="price-card">
-      <div class="label">Precio de lanzamiento</div>
-      <div class="prices">
-        <span class="old">USD 77</span>
-        <span class="new">USD 37</span>
-      </div>
-    </div><br>
+    <div id="oferta-normal">
+      <div class="price-card">
+        <div class="label">Precio de lanzamiento</div>
+        <div class="prices">
+          <span class="old">USD 77</span>
+          <span class="new">USD 37</span>
+        </div>
+      </div><br>
 
-    <div class="bonus-badge">
-      <span>🎁</span>
-      <span><span class="tag">Bonus:</span> las primeras 6 inscriptas se llevan de regalo una lectura de tarot personalizada conmigo.</span>
-    </div><br>
+      <div class="bonus-badge">
+        <span>🎁</span>
+        <span><span class="tag">Bonus:</span> las primeras 6 inscriptas se llevan de regalo una lectura de tarot personalizada conmigo.</span>
+      </div><br>
 
-    <div class="pay-options">
-      <div class="pay-option">
-        <span class="pay-flag">🇦🇷</span>
-        <span class="pay-label">Pagás desde Argentina</span>
-        <a href="https://mpago.la/33Nwvjw" class="btn btn-mp" target="_blank" rel="noopener">Pagar con Mercado Pago</a>
-        <span class="pay-trust">Te lleva a la página oficial y segura de Mercado Pago</span>
+      <div style="text-align:center; margin-bottom:16px;">
+        <p style="font-size:14px; font-weight:600; color:var(--violet-1,#6a1b9a); margin:0 0 6px;">¿Tenés un código de descuento?</p>
+        <input type="text" id="codigo-masterclass" placeholder="Escribilo acá" style="width:65%; max-width:220px; padding:8px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;">
+        <button type="button" id="btn-codigo-masterclass" style="padding:8px 14px; background:#666; color:#fff; border:none; border-radius:4px; font-size:13px; cursor:pointer;">Aplicar</button>
+        <p id="codigo-mensaje-masterclass" style="display:none; font-size:13px; margin:8px 0 0; font-weight:600;"></p>
       </div>
-      <div class="pay-option">
-        <span class="pay-flag">🌍</span>
-        <span class="pay-label">Pagás desde el exterior</span>
-        <div id="paypal-container-BRUYNQCB5ZHZ2"></div>
+
+      <div class="pay-options">
+        <div class="pay-option">
+          <span class="pay-flag">🇦🇷</span>
+          <span class="pay-label">Pagás desde Argentina</span>
+          <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$57.700 <small style="font-size:12px; font-weight:400;">ARS</small></span>
+          <a href="https://mpago.la/33Nwvjw" class="btn btn-mp" target="_blank" rel="noopener">Pagar con Mercado Pago</a>
+          <span class="pay-trust">Te lleva a la página oficial y segura de Mercado Pago</span>
+        </div>
+        <div class="pay-option">
+          <span class="pay-flag">🌍</span>
+          <span class="pay-label">Pagás desde el exterior</span>
+          <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$37 <small style="font-size:12px; font-weight:400;">USD</small></span>
+          <a href="https://www.paypal.com/ncp/payment/BRUYNQCB5ZHZ2" class="btn btn-paypal" target="_blank" rel="noopener">Pagar con PayPal</a>
+        </div>
       </div>
+    </div>
+
+    <div id="oferta-invitacion" style="display:none; max-width:420px; margin:0 auto; text-align:center;">
+      <p style="font-size:16px; font-weight:600; color:var(--violet-1,#6a1b9a); margin:0 0 14px;">🎁 ¡Código válido! Tenés acceso gratuito a la masterclass.</p>
+      <form id="form-invitacion-masterclass">
+        <input type="hidden" name="_subject" value="Acceso gratuito - Iniciación al Tarot (Invitación)">
+        <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
+        <input type="email" name="email" placeholder="Tu email" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
+        <button type="submit" class="btn btn-mp" style="width:100%; border:none; cursor:pointer;">Enviar</button>
+        <p id="form-error-invitacion" style="display:none; color:#c0392b; font-size:13px; margin-top:8px;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+      </form>
+      <p id="form-ok-invitacion" style="display:none; font-size:14px; font-weight:600; color:#2e7d32; margin-top:10px;">¡Gracias! Ya recibimos tus datos. Te vamos a contactar para darte acceso a la masterclass.</p>
     </div>
 
   </div>
@@ -810,7 +837,6 @@
 </footer>
 
 <script src="https://assets.mediadelivery.net/playerjs/player-0.1.0.min.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=BAAprxqOUwqicHofWyIxq6-9B8-AfUDpTQsAHIGNU6d3CWpI63TfvugX6h2HRLNR3jMOvDjjjFybAlcoT0&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 <script>
   // starfield
   var starsEl = document.getElementById('stars');
@@ -897,12 +923,64 @@
     });
   })();
 
-  // ── Botón de PayPal (pago desde el exterior) ──
-  if(window.paypal && paypal.HostedButtons){
-    paypal.HostedButtons({
-      hostedButtonId: "BRUYNQCB5ZHZ2",
-    }).render("#paypal-container-BRUYNQCB5ZHZ2");
-  }
+  // ── Código de invitación (acceso gratuito) ──
+  (function(){
+    function normalizar(str){
+      return str.trim().toUpperCase().replace(/\s+/g, '')
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+    var btn = document.getElementById('btn-codigo-masterclass');
+    var input = document.getElementById('codigo-masterclass');
+    var mensaje = document.getElementById('codigo-mensaje-masterclass');
+    var normal = document.getElementById('oferta-normal');
+    var invitacion = document.getElementById('oferta-invitacion');
+    if(!btn) return;
+
+    btn.addEventListener('click', function(){
+      var codigo = normalizar(input.value);
+      if(codigo === 'INVITACIONAMIGO'){
+        normal.style.display = 'none';
+        invitacion.style.display = 'block';
+      } else {
+        mensaje.style.color = '#c0392b';
+        mensaje.textContent = 'Código no válido.';
+        mensaje.style.display = 'block';
+      }
+    });
+  })();
+
+  // ── Envío del formulario de invitación ──
+  (function(){
+    var form = document.getElementById('form-invitacion-masterclass');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-invitacion');
+    var okMsg = document.getElementById('form-ok-invitacion');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.style.display = 'none';
+          okMsg.style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Enviar';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
 </script>
 
 </body>
