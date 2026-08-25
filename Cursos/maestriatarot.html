@@ -3,323 +3,178 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Maproart Holístika - Despierta tu luz interior con terapia holística, tarot y cursos online.">
-  <title>Maestría en Tarot - Maproart Holístika</title>
+  <meta name="description" content="Maestría en Tarot Avanzado - Maproart Holística. Profundización simbólica, técnicas avanzadas de lectura y tarot terapéutico.">
+  <title>Maestría en Tarot Avanzado - Maproart Holística</title>
   <link rel="icon" href="https://via.placeholder.com/32x32?text=MH">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../style.css">
+
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tu CSS (sin Bootstrap) -->
+  <link rel="stylesheet" href="../style.css">
+
   <style>
-    body {
-      font-family: "Montserrat", sans-serif;
-      margin: 0;
-    
-      color: #222;
-    }
-
-    /* HEADER */
-   header.site-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      box-shadow: -4px 0 10px 0 #e5e5e5;
-      padding: 24px 56px;
-      z-index: 100;
-    }
-
-    .section {
-      padding: 100px 20px 40px;
-      text-align: center;
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #fff;
-    }
-
-    .brand {
-      color: #000000;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.25);
-    }
-
     .nav-links {
-      display: flex;
-      gap: 18px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: #000000;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #ab47bc;
-    }
-
-    .burger {
-      display: none;
-      background: none;
-      border: none;
-      color: #808080;
-      font-size: 22px;
-    }
-
-    /* MAIN */
-    main.section {
-      padding: 160px 20px 80px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 36px;
-      color: #6a1b9a;
-      margin-bottom: 12px;
-    }
-
-    p {
-      margin: 0 auto 50px;
-    }
-
-    .service-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: #fff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      padding: 28px;
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
-    }
-
-    .card h3 {
-      color: #6a1b9a;
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, #6a1b9a, #ab47bc);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 24px;
-      font-weight: 600;
-      transition: 0.3s;
-      display: block;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-
-    /* FOOTER */
-    footer.site-footer {
-      background: linear-gradient(135deg, #6a1b9a, #4a148c);
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-    
-    }
-
-    footer a {
-      color: #ffeaa7;
-      text-decoration: none;
-    }
-
-    /* MENU RESPONSIVO */
-    .nav-links.open {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 15, 15, 0.96);
-      backdrop-filter: blur(6px);
-      z-index: 200;
-      gap: 26px;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .nav-links.open a {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-
-    .nav-links.open a:hover {
-      color: #ab47bc;
-      transform: scale(1.05);
-    }
-
-    .grid-sm{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(1.05); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .burger { display: block; }
+        text-shadow: 0 4px 14px rgb(0, 0, 0.75);
     }
   </style>
 </head>
 <body>
-   <header class="site-header">
-    <nav class="navbar">
+  <header class="site-header">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
       <a class="brand" href="../index.html">
-        <img src="../Imagenes/Logo.jpg" alt="Logo Maproart Holístika">
+        <img src="../Imagenes/Logo.jpg" alt="Ivana Alejandra Molina - Logo" />
         <span>Maproart Holístika</span>
       </a>
-      <button id="btn-menu" class="burger" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../servicios.html" class="active">Servicios</a></li>
-        <li><a href="../cursos.html">Cursos</a></li>
-        <li><a href="../ceremonias.html">Ceremonias</a></li>
-        <li><a href="../contacto.html">Contacto</a></li>
+
+      <button id="btn-menu" class="burger" aria-label="Abrir menú" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <ul class="nav-links" id="nav-links" role="menubar" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="../index.html#inicio">Inicio</a></li>
+        <li role="none"><a role="menuitem" href="../index.html#sobre">Sobre mí</a></li>
+        <li role="none"><a role="menuitem" href="../servicios.html">Servicios</a></li>
+        <li role="none"><a role="menuitem" href="../cursos.html">Cursos</a></li>
+        <li role="none"><a role="menuitem" href="../ceremonias.html">Ceremonias</a></li>
+        <li role="none"><a role="menuitem" href="../index.html#testimonios">Testimonios</a></li>
+        <li role="none"><a role="menuitem" href="../contacto.html" class="btn btn-cta">Contactarme</a></li>
       </ul>
     </nav>
   </header>
-  
-<main>
-  <section class="section maestria-tarot bg-dual-energy" id="maestria">
-    <div class="container">
-      
-      <h2 class="text-center">Maestría de Tarot: De la Interpretación a la Alquimia</h2>
-      <p class="text-center" style="max-width: 850px; margin: 0 auto 40px;">
-        Perfeccioná tus habilidades y convertí tu conexión con las cartas en una herramienta profesional de sanación y transformación profunda.
-      </p>
 
-      <div class="grid">
-        
-        <div class="card">
-          <img src="https://i.etsystatic.com/27576340/r/il/781531/6986555206/il_fullxfull.6986555206_1ke4.jpg" alt="Maestría de Tarot Alquímico" style="width: 100%; border-radius: 4px;">
-          
-          <div style="background: var(--bg-gradient); padding: 20px; margin-top: 15px; border: 1px solid var(--muted); text-align: center; border-radius: 4px;">
-            <span style="font-size: 13px; font-weight: 600; color: #777; text-transform: uppercase;">Inversión Mensual</span>
-            <h3 style="font-size: 32px; color: var(--violet-1); margin: 5px 0;">$52.000 <small style="font-size: 14px;">ARS</small></h3>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="text-center">Maestría en Tarot Avanzado</h1>
+        <p class="text-center">Profundizá tu práctica del Tarot con técnicas avanzadas de lectura, trabajo terapéutico y profesionalización.</p>
+
+        <div class="grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 24px; align-items: start;">
+
+          <!-- COLUMNA IZQUIERDA: info + formulario -->
+          <div>
+            <div class="card" style="padding: 20px;">
+              <p><strong>Modalidad:</strong> Online por Meet (clases grabadas + grupo de WhatsApp para prácticas y devoluciones + material en PDF)</p>
+              <p><strong>Duración:</strong> 12 clases de 2 horas cada una</p>
+              <p><strong>Contenido:</strong> Teoría, práctica intensiva y trabajo terapéutico</p>
+            </div>
+
+            <form id="form-tarot-avanzado" action="https://formspree.io/f/mdenjzpg" method="POST" style="margin-top: 24px;">
+              <input type="hidden" name="_subject" value="Consulta - Maestría en Tarot Avanzado">
+
+              <label for="ta-nombre">Nombre y apellido</label>
+              <input type="text" id="ta-nombre" name="Nombre" required style="width:100%; padding:10px; margin-bottom:14px; border:1px solid #ccc; border-radius:4px;">
+
+              <label for="ta-nacimiento">Fecha de nacimiento</label>
+              <input type="date" id="ta-nacimiento" name="Fecha de nacimiento" required style="width:100%; padding:10px; margin-bottom:14px; border:1px solid #ccc; border-radius:4px;">
+
+              <label for="ta-consulta">Tu consulta</label>
+              <textarea id="ta-consulta" name="Consulta" rows="4" placeholder="Contame qué querés saber sobre la maestría..." style="width:100%; padding:10px; margin-bottom:14px; border:1px solid #ccc; border-radius:4px;"></textarea>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">Enviar consulta</button>
+              <p id="ta-form-ok" style="display:none; color: green; margin-top: 10px;">¡Gracias! Tu consulta fue enviada.</p>
+              <p id="ta-form-error" style="display:none; color: #c0392b; margin-top: 10px;">Hubo un error al enviar. Probá de nuevo o escribime por WhatsApp.</p>
+            </form>
+
+            <div class="text-center" style="margin-top: 18px;">
+              <a href="https://wa.me/542645813828?text=Hola%20Ivana%2C%20quiero%20consultar%20antes%20de%20anotarme%20a%20la%20Maestr%C3%ADa%20en%20Tarot%20Avanzado" class="btn btn-outline" target="_blank" rel="noopener">¿Querés consultar antes de anotarte? Clic acá</a>
+            </div>
           </div>
 
-          <div style="background: var(--muted); padding: 20px; margin-top: 15px; border-radius: 4px;">
-            <h3 style="font-size: 18px; color: var(--violet-1); margin-top: 0;">Beneficios Exclusivos</h3>
-            <ul class="tools-list" style="margin: 10px 0 0 0;">
-              <li style="font-size: 14px;"><i class="fab fa-whatsapp"></i> Grupo de consultas y prácticas.</li>
-              <li style="font-size: 14px;"><i class="fas fa-file-pdf"></i> Material de estudio en PDF.</li>
-              <li style="font-size: 14px;"><i class="fas fa-video"></i> Clases grabadas de por vida.</li>
+          <!-- COLUMNA DERECHA: descripción del programa -->
+          <div>
+            <h2>1. Profundización simbólica y esotérica</h2>
+            <ul>
+              <li>Tarot y Árbol de la Vida (Cábala): correspondencias de Arcanos Mayores con senderos</li>
+              <li>Tarot y Astrología: correspondencias planetarias y zodiacales</li>
+              <li>Tarot y Numerología: cómo los números amplifican significados</li>
+              <li>Tarot y Alquimia: procesos de transformación en las cartas</li>
+            </ul>
+
+            <h2>2. Técnicas avanzadas de lectura</h2>
+            <ul>
+              <li>Tiradas complejas: Mandala Astrológico, Rueda del Año, Gran Cruz Celta, Árbol de la Vida</li>
+              <li>Lecturas dinámicas: cómo complementar con Arcanos Mayores y Menores</li>
+              <li>Lecturas evolutivas: de dónde viene, hacia dónde va y qué integrar</li>
+              <li>Técnicas predictivas de tiempo y ciclos (meses, estaciones, fases lunares)</li>
+            </ul>
+
+            <h2>3. Trabajo práctico intensivo</h2>
+            <ul>
+              <li>Lecturas ciegas en clase (práctica grupal en vivo por Meet)</li>
+              <li>Simulación de consultas reales con rotación de roles (alumno/consultante)</li>
+              <li>Lecturas colectivas para analizar energía de grupo, país o eventos</li>
+              <li>Cómo armar informes escritos de una lectura</li>
+            </ul>
+
+            <h2>4. Tarot terapéutico y sanador</h2>
+            <ul>
+              <li>Uso del Tarot como espejo del inconsciente (arquetipos junguianos)</li>
+              <li>Ejercicios de diálogo con las cartas (meditaciones y visualizaciones guiadas)</li>
+              <li>Lecturas de bloqueos y recursos: cómo acompañar sin "predecir" fatalidades</li>
+              <li>Uso combinado con péndulo, chakras y cristales</li>
+            </ul>
+
+            <h2>5. Integración y profesionalización</h2>
+            <ul>
+              <li>Ética en la práctica avanzada: cómo sostener lecturas profundas sin dañar</li>
+              <li>Cómo presentar un servicio profesional de Tarot (sesiones individuales, talleres, lecturas online)</li>
+              <li>Práctica final: cada alumna realiza una lectura avanzada completa con devolución grupal</li>
             </ul>
           </div>
+
         </div>
-
-        <div class="content" style="text-align: left;">
-          <h3 style="color: var(--violet-1); margin-bottom: 20px;">Formación de Alto Nivel:</h3>
-          
-          <ul class="tools-list">
-            <li><strong><i class="fas fa-flask"></i> Simbología Profunda:</strong> Cábala, Astrología y Alquimia aplicada.</li>
-            <li><strong><i class="fas fa-eye"></i> Espejo del Inconsciente:</strong> Descubrí bloqueos y recursos ocultos.</li>
-            <li><strong><i class="fas fa-layers-group"></i> Tiradas Complejas:</strong> Dominio absoluto de estructuras avanzadas.</li>
-            <li><strong><i class="fas fa-user-md"></i> Simulaciones Reales:</strong> Prácticas intensivas y lecturas ciegas.</li>
-            <li><strong><i class="fas fa-scroll"></i> Certificación:</strong> Convertite en una guía profesional y eficiente.</li>
-          </ul>
-
-          <div class="card" style="margin-top: 30px; border-left: 4px solid var(--violet-2);">
-            <p style="margin-bottom: 0; font-size: 15px;">
-              <strong><i class="fas fa-calendar" style="color: var(--violet-2);"></i> Próximo Inicio:</strong> 11 de mayo.<br>
-              <strong>Detalles técnicos:</strong> 12 clases intensivas de 2 horas cada una, diseñadas para transmutar tu pasión en una maestría real.
-            </p>
-          </div>
-
-          <div style="margin-top: 25px; text-align: center;">
-             <span style="color: var(--violet-1); font-weight: bold; font-size: 14px;">
-                <i class="fas fa-award"></i> NIVEL PROFESIONAL AVANZADO
-             </span>
-          </div>
-
-          <div class="grid-sm" style="margin-top: 20px;">
-            <a target="_blank" 
-   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Me%20interesa%20postularme%20para%20la%20Maestr%C3%ADa%20de%20Tarot:%20De%20la%20Interpretaci%C3%B3n%20a%20la%20Alquimia.%20%C2%BFMe%20podr%C3%ADas%20dar%20m%C3%A1s%20informaci%C3%B3n?" 
-   class="btn-primary text-center" 
-   style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-   <i class="fab fa-whatsapp"></i> POSTULARME
-</a>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
-</main>
-  
+    </section>
+  </main>
+
   <footer class="site-footer">
-    <p>&copy; Maproart Holístika – Ivana Alejandra Molina</p>
-    <p>Email: <a href="mailto:maproartholistika@gmail.com">maproartholistika@gmail.com</a> | WhatsApp: <a href="https://wa.me/542645813828">+54 264 581 3828</a></p>
-    <div class="socials" aria-hidden="false">
+    <div class="container">
+      <p>&copy; Maproart Holístika – Ivana Alejandra Molina</p>
+      <p>Email: <a href="mailto:maproartholistika@gmail.com">maproartholistika@gmail.com</a> | WhatsApp: <a href="https://wa.me/542645813828">+54 264 581 3828</a></p>
+      <div class="socials" aria-hidden="false">
         <a target="_blank" href="https://www.instagram.com/maproart.holistika" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
         <a target="_blank" href="https://www.facebook.com/MaproartHolístika" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
         <a target="_blank" href="https://www.tiktok.com/@maproart.holistika" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
       </div>
+    </div>
   </footer>
-  
-   <script>
-    // menú hamburguesa ↔ cruz
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('btn-menu');
-      const nav = document.getElementById('nav-links');
-      const icon = btn.querySelector('i');
 
-      btn.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        btn.classList.toggle('open');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      });
-
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('open');
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
+  <script src="../script.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById('form-tarot-avanzado');
+      if(!form) return;
+      var okMsg = document.getElementById('ta-form-ok');
+      var errorMsg = document.getElementById('ta-form-error');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        errorMsg.style.display = 'none';
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+        fetch('https://formspree.io/f/mdenjzpg', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response){
+          if(response.ok){
+            form.style.display = 'none';
+            okMsg.style.display = 'block';
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Enviar consulta';
+            errorMsg.style.display = 'block';
+          }
+        }).catch(function(){
+          btn.disabled = false;
+          btn.textContent = 'Enviar consulta';
+          errorMsg.style.display = 'block';
         });
       });
-    });
+    })();
   </script>
 </body>
 </html>
