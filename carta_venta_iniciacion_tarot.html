@@ -778,34 +778,36 @@
         <p id="form-ok-compra" style="display:none; font-size:14px; font-weight:600; color:#2e7d32; margin-top:10px;">¡Gracias! Ya tenemos tus datos. Elegí abajo tu medio de pago para completar la inscripción.</p>
       </div>
 
-      <div class="price-card" id="zona-pago">
-        <div class="label">Precio de lanzamiento</div>
-        <div class="prices">
-          <span class="old">USD 77</span>
-          <span class="new">USD 37</span>
-        </div>
-      </div><br>
+      <div id="zona-pago" style="display:none;">
+        <div class="price-card">
+          <div class="label">Precio de lanzamiento</div>
+          <div class="prices">
+            <span class="old">USD 77</span>
+            <span class="new">USD 37</span>
+          </div>
+        </div><br>
 
-      <div style="text-align:center; margin-bottom:16px;">
-        <p style="font-size:14px; font-weight:600; color:var(--violet-1,#6a1b9a); margin:0 0 6px;">¿Tenés un código de descuento?</p>
-        <input type="text" id="codigo-masterclass" placeholder="Escribilo acá" style="width:65%; max-width:220px; padding:8px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;">
-        <button type="button" id="btn-codigo-masterclass" style="padding:8px 14px; background:#666; color:#fff; border:none; border-radius:4px; font-size:13px; cursor:pointer;">Aplicar</button>
-        <p id="codigo-mensaje-masterclass" style="display:none; font-size:13px; margin:8px 0 0; font-weight:600;"></p>
-      </div>
-
-      <div class="pay-options">
-        <div class="pay-option">
-          <span class="pay-flag">🇦🇷</span>
-          <span class="pay-label">Pagás desde Argentina</span>
-          <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$60.000 <small style="font-size:12px; font-weight:400;">ARS</small></span>
-          <a href="https://mpago.la/33Nwvjw" class="btn btn-mp" target="_blank" rel="noopener">Pagar con Mercado Pago</a>
-          <span class="pay-trust">Te lleva a la página oficial y segura de Mercado Pago</span>
+        <div style="text-align:center; margin-bottom:16px;">
+          <p style="font-size:14px; font-weight:600; color:var(--violet-1,#6a1b9a); margin:0 0 6px;">¿Tenés un código de descuento?</p>
+          <input type="text" id="codigo-masterclass" placeholder="Escribilo acá" style="width:65%; max-width:220px; padding:8px 10px; border:1px solid #ccc; border-radius:4px; font-size:13px;">
+          <button type="button" id="btn-codigo-masterclass" style="padding:8px 14px; background:#666; color:#fff; border:none; border-radius:4px; font-size:13px; cursor:pointer;">Aplicar</button>
+          <p id="codigo-mensaje-masterclass" style="display:none; font-size:13px; margin:8px 0 0; font-weight:600;"></p>
         </div>
-        <div class="pay-option">
-          <span class="pay-flag">🌍</span>
-          <span class="pay-label">Pagás desde el exterior</span>
-          <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$37 <small style="font-size:12px; font-weight:400;">USD</small></span>
-          <a href="https://www.paypal.com/ncp/payment/BRUYNQCB5ZHZ2" class="btn btn-paypal" target="_blank" rel="noopener">Pagar con PayPal</a>
+
+        <div class="pay-options">
+          <div class="pay-option">
+            <span class="pay-flag">🇦🇷</span>
+            <span class="pay-label">Pagás desde Argentina</span>
+            <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$60.000 <small style="font-size:12px; font-weight:400;">ARS</small></span>
+            <a href="https://mpago.la/33Nwvjw" class="btn btn-mp" target="_blank" rel="noopener">Pagar con Mercado Pago</a>
+            <span class="pay-trust">Te lleva a la página oficial y segura de Mercado Pago</span>
+          </div>
+          <div class="pay-option">
+            <span class="pay-flag">🌍</span>
+            <span class="pay-label">Pagás desde el exterior</span>
+            <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$37 <small style="font-size:12px; font-weight:400;">USD</small></span>
+            <a href="https://www.paypal.com/ncp/payment/BRUYNQCB5ZHZ2" class="btn btn-paypal" target="_blank" rel="noopener">Pagar con PayPal</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1065,6 +1067,7 @@
           okMsg.style.display = 'block';
           var zonaPago = document.getElementById('zona-pago');
           if(zonaPago){
+            zonaPago.style.display = 'block';
             setTimeout(function(){
               zonaPago.scrollIntoView({behavior:'smooth', block:'center'});
             }, 300);
