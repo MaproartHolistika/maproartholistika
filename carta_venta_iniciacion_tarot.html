@@ -428,7 +428,7 @@
 <!-- End MailerLite Universal -->
 </head>
 <body>
-
+<div class="ml-embedded" data-form="77oDuF" style="display:none;"></div>
 <svg width="0" height="0" style="position:absolute;" aria-hidden="true">
   <defs>
     <symbol id="mandala-ornament" viewBox="-105 -105 210 210">
@@ -1060,6 +1060,7 @@
         if(response.ok){
           form.style.display = 'none';
           okMsg.style.display = 'block';
+          if(typeof ml === 'function'){ ml('add', '77oDuF', { fields: { email: form.email.value, name: form.nombre.value } }); }
           var zonaPago = document.getElementById('zona-pago');
           if(zonaPago){
             zonaPago.style.display = 'block';
