@@ -261,6 +261,7 @@
               <p id="form-error-carta" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
             </form>
 
+            <p id="gracias-carta" style="display: none; font-size: 13px; font-weight: 600; color: #2e7d32; text-align: center; margin: 0 0 8px;">¡Gracias! Para confirmar tu solicitud, completá el pago con el medio que prefieras:</p>
             <div id="botones-pago-carta" style="display: none; gap: 8px; flex-wrap: wrap; justify-content: center; padding-top: 4px;">
               <div style="text-align: center; flex: 1; min-width: 115px;">
                 <a target="_blank" href="https://mpago.li/1C1ssGN" style="display: inline-block; background: #009EE3; color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;">Pagar con Mercado Pago</a>
@@ -371,6 +372,7 @@
     if(!form) return;
     var errorMsg = document.getElementById('form-error-carta');
     var botones = document.getElementById('botones-pago-carta');
+    var graciasMsg = document.getElementById('gracias-carta');
     form.addEventListener('submit', function(e){
       e.preventDefault();
       errorMsg.style.display = 'none';
@@ -384,6 +386,7 @@
       }).then(function(response){
         if(response.ok){
           form.style.display = 'none';
+          if(graciasMsg) graciasMsg.style.display = 'block';
           botones.style.display = 'flex';
         } else {
           btn.disabled = false;
