@@ -795,7 +795,7 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
         <p id="form-ok-compra" style="display:none; font-size:14px; font-weight:600; color:#2e7d32; margin-top:10px;">¡Gracias! Ya tenemos tus datos. Elegí abajo tu medio de pago para completar la inscripción.</p>
       </div>
 
-      <div id="zona-pago" style="display:none;">
+      <div id="zona-pago">
         <div class="price-card">
           <div class="label">Precio de lanzamiento</div>
           <div class="prices">
@@ -815,17 +815,18 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
           <div class="pay-option">
             <span class="pay-flag">🇦🇷</span>
             <span class="pay-label">Pagás desde Argentina</span>
-            <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$60.000 <small style="font-size:12px; font-weight:400;">ARS</small></span>
-            <a href="https://mpago.la/33Nwvjw" class="btn btn-mp" target="_blank" rel="noopener">Pagar con Mercado Pago</a>
+            <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$57.000 <small style="font-size:12px; font-weight:400;">ARS</small></span>
+            <a href="https://mpago.la/33Nwvjw" class="btn btn-mp pago-link" target="_blank" rel="noopener">Pagar con Mercado Pago</a>
             <span class="pay-trust">Te lleva a la página oficial y segura de Mercado Pago</span>
           </div>
           <div class="pay-option">
             <span class="pay-flag">🌍</span>
             <span class="pay-label">Pagás desde el exterior</span>
             <span style="font-size:20px; font-weight:700; color:var(--gold,#e8b94b);">$37 <small style="font-size:12px; font-weight:400;">USD</small></span>
-            <a href="https://www.paypal.com/ncp/payment/BRUYNQCB5ZHZ2" class="btn btn-paypal" target="_blank" rel="noopener">Pagar con PayPal</a>
+            <a href="https://www.paypal.com/ncp/payment/BRUYNQCB5ZHZ2" class="btn btn-paypal pago-link" target="_blank" rel="noopener">Pagar con PayPal</a>
           </div>
         </div>
+        <p id="aviso-completar-datos" style="display:none; text-align:center; color:var(--gold); font-size:14px; font-weight:600; margin-top:16px;">👆 Antes de pagar, completá tus datos en el formulario de arriba.</p>
       </div>
     </div>
 
@@ -1064,6 +1065,21 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
     if(!form) return;
     var errorMsg = document.getElementById('form-error-compra');
     var okMsg = document.getElementById('form-ok-compra');
+    var avisoCompletar = document.getElementById('aviso-completar-datos');
+    var datosCompletados = false;
+
+    // Bloquea los botones de pago hasta que se complete el formulario
+    document.querySelectorAll('.pago-link').forEach(function(link){
+      link.addEventListener('click', function(e){
+        if(!datosCompletados){
+          e.preventDefault();
+          avisoCompletar.style.display = 'block';
+          form.scrollIntoView({behavior:'smooth', block:'center'});
+          form.querySelector('input[name="nombre"]').focus();
+        }
+      });
+    });
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
       errorMsg.style.display = 'none';
@@ -1078,11 +1094,12 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
         if(response.ok){
           form.style.display = 'none';
           okMsg.style.display = 'block';
+          datosCompletados = true;
+          avisoCompletar.style.display = 'none';
           if(typeof ml === 'function'){ ml('add', '77oDuF', { fields: { email: form.email.value, name: form.nombre.value } }); }
           if(typeof fbq === 'function'){ fbq('track', 'Lead', { content_name: 'intencion_compra' }); }
           var zonaPago = document.getElementById('zona-pago');
           if(zonaPago){
-            zonaPago.style.display = 'block';
             setTimeout(function(){
               zonaPago.scrollIntoView({behavior:'smooth', block:'center'});
             }, 300);
