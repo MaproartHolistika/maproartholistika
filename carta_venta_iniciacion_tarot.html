@@ -788,8 +788,18 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
           <input type="hidden" name="_subject" value="Quiere comprar - Iniciación al Tarot">
           <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
           <input type="email" name="email" placeholder="Tu email" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
-          <input type="tel" name="celular" placeholder="Celular (opcional)" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
-          <button type="submit" class="btn btn-mp" style="width:100%; border:none; cursor:pointer; text-align:center; justify-content:center;">Continuar con la compra</button>
+          <div style="display:flex; gap:6px; margin-bottom:10px;">
+            <select name="codigo_pais" style="width:38%; padding:10px 4px; border:1px solid #ccc; border-radius:4px; font-size:13px; box-sizing:border-box; background:#fff;">
+              <option value="+54" selected>🇦🇷 +54 (Arg)</option>
+              <option value="+52">🇲🇽 +52 (Méx)</option>
+              <option value="+57">🇨🇴 +57 (Col)</option>
+              <option value="+56">🇨🇱 +56 (Chi)</option>
+              <option value="+34">🇪🇸 +34 (Esp)</option>
+              <option value="+1">🇺🇸 +1 (EEUU)</option>
+              <option value="">🌍 Otro</option>
+            </select>
+            <input type="tel" name="celular" placeholder="Celular (opcional)" style="width:62%; padding:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
+          </div>
           <p id="form-error-compra" style="display:none; color:#c0392b; font-size:13px; margin-top:8px;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
         </form>
         <p id="form-ok-compra" style="display:none; font-size:14px; font-weight:600; color:#2e7d32; margin-top:10px;">¡Gracias! Ya tenemos tus datos. Elegí abajo tu medio de pago para completar la inscripción.</p>
@@ -884,8 +894,18 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
     <form id="form-pregunta">
       <input type="hidden" name="_subject" value="Pregunta - Iniciación al Tarot">
       <input type="text" name="nombre" placeholder="Nombre completo" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
-      <input type="tel" name="celular" placeholder="Celular (opcional)" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
-      <input type="email" name="email" placeholder="Tu email" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
+      <div style="display:flex; gap:6px; margin-bottom:10px;">
+        <select name="codigo_pais" style="width:38%; padding:10px 4px; border:1px solid #ccc; border-radius:4px; font-size:13px; box-sizing:border-box; background:#fff;">
+          <option value="+54" selected>🇦🇷 +54 (Arg)</option>
+          <option value="+52">🇲🇽 +52 (Méx)</option>
+          <option value="+57">🇨🇴 +57 (Col)</option>
+          <option value="+56">🇨🇱 +56 (Chi)</option>
+          <option value="+34">🇪🇸 +34 (Esp)</option>
+          <option value="+1">🇺🇸 +1 (EEUU)</option>
+          <option value="">🌍 Otro</option>
+        </select>
+        <input type="tel" name="celular" placeholder="Celular (opcional)" style="width:62%; padding:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box;">
+      </div>
       <textarea name="pregunta" placeholder="Tu pregunta" required rows="4" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px; font-size:14px; box-sizing:border-box; font-family:inherit; resize:vertical;"></textarea>
       <button type="submit" class="btn btn-mp" style="width:100%; border:none; cursor:pointer;">Enviar</button>
       <p id="form-error-pregunta" style="display:none; color:#c0392b; font-size:13px; margin-top:8px;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
@@ -1086,6 +1106,11 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
+      var celInput = form.querySelector('input[name="celular"]');
+      var codInput = form.querySelector('select[name="codigo_pais"]');
+      if(celInput && celInput.value.trim() && codInput && codInput.value){
+        celInput.value = codInput.value + ' ' + celInput.value.trim();
+      }
       fetch('https://formspree.io/f/mdenjzpg', {
         method: 'POST',
         body: new FormData(form),
@@ -1129,6 +1154,11 @@ src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Enviando...';
+      var celInput2 = form.querySelector('input[name="celular"]');
+      var codInput2 = form.querySelector('select[name="codigo_pais"]');
+      if(celInput2 && celInput2.value.trim() && codInput2 && codInput2.value){
+        celInput2.value = codInput2.value + ' ' + celInput2.value.trim();
+      }
       fetch('https://formspree.io/f/mdenjzpg', {
         method: 'POST',
         body: new FormData(form),
