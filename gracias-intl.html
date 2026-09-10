@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias por tu compra! · Maproart Holistika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#170621; --night2:#2E0F45; --velvet:#4A1740; --plum:#7C3AA6;
+    --gold:#E8B94B; --gold-deep:#C9932A; --ember:#E85D75; --ivory:#FBF6EC;
+    --ink:#241333; --muted:#C7AEDB;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Work Sans', sans-serif; color:#fff; line-height:1.6;
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:32px;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(232,93,117,0.3) 0%, transparent 60%),
+                linear-gradient(180deg, var(--night2) 0%, var(--night) 100%);
+  }
+  .card{max-width:480px;}
+  .check{
+    width:72px; height:72px; border-radius:50%; margin:0 auto 24px;
+    background:linear-gradient(135deg,var(--gold) 0%, var(--gold-deep) 100%);
+    display:grid; place-items:center;
+  }
+  h1{font-family:'Playfair Display', serif; font-weight:900; font-size:clamp(26px,4vw,34px); margin-bottom:16px;}
+  p{font-size:16.5px; font-weight:300; color:var(--muted); margin-bottom:10px;}
+  .btn{
+    display:inline-flex; margin-top:24px; background:#25D366; color:#fff; font-weight:700;
+    font-size:15px; padding:14px 28px; border-radius:50px; text-decoration:none;
+  }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1367336245611549');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1367336245611549&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+  // Evita contar la compra dos veces si la persona recarga esta página
+  if (!sessionStorage.getItem('purchase_tracked_intl')) {
+    fbq('track', 'Purchase', {
+      value: 37,
+      currency: 'USD',
+      content_name: 'Iniciacion al Tarot - PayPal'
+    });
+    sessionStorage.setItem('purchase_tracked_intl', '1');
+  }
+</script>
+</head>
+<body>
+  <div class="card">
+    <div class="check">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#170621" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h1>¡Gracias por tu compra!</h1>
+    <p>Ya recibimos tu pago. En breve te vamos a contactar por email o WhatsApp para darte acceso a la masterclass "Iniciación al Tarot · Método M.I.R.A.".</p>
+    <p>Si tenés alguna duda mientras tanto, escribinos.</p>
+    <a class="btn" href="https://wa.me/542645813828" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+  </div>
+</body>
+</html>
