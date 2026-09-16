@@ -232,24 +232,61 @@
       <div class="grid">
         
         <div class="card">
-          <img src="../Imagenes/cursotarot.jpg" alt="Formación en Tarot Terapéutico" style="width: 100%; border-radius: 4px;">
-          
+          <img src="../Imagenes/cursotarot.jpg" alt="Formación en Tarot Terapéutico" style="width: 100%; border-radius: 4px; margin-top: 0;">
+
           <div style="background: var(--bg-gradient); padding: 20px; margin-top: 15px; border: 1px solid var(--muted); text-align: center; border-radius: 4px;">
             <span style="font-size: 13px; font-weight: 600; color: #777; text-transform: uppercase;">Inversión Mensual</span>
             <h3 style="font-size: 32px; color: var(--violet-1); margin: 5px 0;">$43.000 <small style="font-size: 14px;">ARS</small></h3>
           </div>
 
+          <div style="background: var(--muted); padding: 20px; margin-top: 15px; border-radius: 4px;">
+            <ul class="tools-list" style="margin: 0;">
+              <li style="display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 14px;"><strong style="white-space: nowrap; min-width: 100px; flex-shrink: 0; color: #000;"><i class="fas fa-wifi"></i> Modalidad:</strong> <span style="color: #6a1b9a;">Online (Clases grabadas y en vivo)</span></li>
+              <li style="display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 14px;"><strong style="white-space: nowrap; min-width: 100px; flex-shrink: 0; color: #000;"><i class="fas fa-hourglass-half"></i> Duración:</strong> <span style="color: #6a1b9a;">2 Meses</span></li>
+              <li style="display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 14px;"><strong style="white-space: nowrap; min-width: 100px; flex-shrink: 0; color: #000;"><i class="fas fa-book-open"></i> Contenido:</strong> <span style="color: #6a1b9a;">Teoría y Práctica</span></li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-gradient); padding: 14px; margin-top: 15px; border: 1px solid var(--muted); border-radius: 4px;">
+            <form id="form-consulta-tarot-curso">
+              <input type="hidden" name="_subject" value="Nueva consulta - Curso de Tarot Terapéutico">
+              <p style="font-size: 12px; color: #444; text-align: center; margin: 0 0 8px;">Dejanos tus datos y te contactamos con más información:</p>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 8px 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <label for="fecha-nac-tarot-curso" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Fecha de nacimiento</label>
+              <input type="date" id="fecha-nac-tarot-curso" name="fecha_nacimiento" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box;">
+              <label for="consulta-tarot-curso" style="display: block; font-size: 11px; color: #666; margin-bottom: 3px; text-align: left;">Tu consulta</label>
+              <textarea id="consulta-tarot-curso" name="consulta" placeholder="Contanos qué querés saber sobre el curso..." rows="3" required style="width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-sizing: border-box; resize: vertical;"></textarea>
+              <button type="submit" style="width: 100%; background: var(--violet-1); color: #fff; border: none; padding: 10px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer;">Enviar</button>
+              <p id="form-error-tarot-curso" style="display: none; color: #c0392b; font-size: 12px; text-align: center; margin: 8px 0 0;">Hubo un problema al enviar. Probá de nuevo o escribinos por WhatsApp.</p>
+              <p id="form-ok-tarot-curso" style="display: none; color: #2e7d32; font-size: 12px; text-align: center; margin: 8px 0 0;">¡Gracias! Te vamos a contactar pronto.</p>
+            </form>
+          </div>
+
+          <div class="text-center" style="margin-top: 14px;">
+            <a target="_blank" 
+   href="https://wa.me/542645813828?text=Hola%20Ivana!%20Tengo%20una%20consulta%20sobre%20el%20Curso%20de%20Tarot%20Terap%C3%A9utico." 
+   class="btn-primary" 
+   style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 350px; margin: 0 auto; text-decoration: none;">
+   <i class="fab fa-whatsapp"></i> Consultas por WhatsApp
+</a>
+          </div>
+
+          <div class="grid-sm" style="margin-top: 14px;">
+            <a target="_blank" href="../Programas/PROGRAMA CURSO DE TAROT EVOLUTIVO TERAPÉUTICO-1.pdf" class="btn-primary text-center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <i class="fas fa-file-download"></i> PROGRAMA
+            </a>
+          </div>
         </div>
 
         <div class="content" style="text-align: left;">
           <h3 style="color: var(--violet-1); margin-bottom: 20px;">¿Qué te ofrece este curso?</h3>
           
           <ul class="tools-list">
-            <li><strong><i class="fas fa-eye"></i> Enfoque evolutivo:</strong> Más allá de la simple predicción.</li>
-            <li><strong><i class="fas fa-comments"></i> Seguimiento:</strong> Consultas y soporte personalizado.</li>
-            <li><strong><i class="fas fa-users"></i> Flexibilidad:</strong> Acceso a grupos posteriores para recuperar clases.</li>
-            <li><strong><i class="fas fa-video"></i> Grabaciones:</strong> Posibilidad de ver las clases en vivo o grabadas.</li>
-            <li><strong><i class="fas fa-graduation-cap"></i> Formación:</strong> Herramientas para ayudarte a vos y a los demás.</li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-eye"></i> Enfoque Evolutivo:</strong> <span style="color: #6a1b9a;">Vas a ir más allá de la simple predicción, trabajando el tarot desde una mirada terapéutica que te ayuda a comprender el porqué de cada situación y a acompañar procesos de cambio.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-comments"></i> Seguimiento Personalizado:</strong> <span style="color: #6a1b9a;">Vas a contar con consultas y soporte personalizado durante todo el curso, para resolver tus dudas y afianzar lo aprendido.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-users"></i> Flexibilidad de Grupos:</strong> <span style="color: #6a1b9a;">Vas a poder recuperar clases en los grupos posteriores si te perdés alguna, sin perder continuidad en tu formación.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-video"></i> Clases Grabadas y en Vivo:</strong> <span style="color: #6a1b9a;">Vas a poder seguir las clases en vivo o ver las grabaciones cuando más te convenga, a tu propio ritmo.</span></li>
+            <li style="display: flex; flex-wrap: wrap; gap: 2px 8px;"><strong style="white-space: nowrap; min-width: 190px; flex-shrink: 0; color: #000;"><i class="fas fa-graduation-cap"></i> Formación Profesional:</strong> <span style="color: #6a1b9a;">Vas a incorporar herramientas concretas para hacer lecturas a vos mismo/a y a otras personas, con una base sólida para ejercerlo si lo deseás.</span></li>
           </ul>
 
           <div class="card" style="margin-top: 30px; border-left: 4px solid var(--violet-2);">
@@ -260,10 +297,10 @@
             </p>
           </div>
 
-          <div class="grid-sm" style="margin-top: 20px;">
-            <a target="_blank" href="../Programas/PROGRAMA CURSO DE TAROT EVOLUTIVO TERAPÉUTICO-1.pdf" class="btn-primary text-center" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-              <i class="fas fa-file-download"></i> PROGRAMA
-            </a>
+          <div style="margin-top: 25px; text-align: center;">
+             <span style="color: #d32f2f; font-weight: bold; font-size: 14px;">
+                <i class="fas fa-exclamation-triangle"></i> ¡CUPOS LIMITADOS!
+             </span>
           </div>
         </div>
 
@@ -305,5 +342,41 @@
       });
     });
   </script>
+<script>
+  (function(){
+    var form = document.getElementById('form-consulta-tarot-curso');
+    if(!form) return;
+    var errorMsg = document.getElementById('form-error-tarot-curso');
+    var okMsg = document.getElementById('form-ok-tarot-curso');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      okMsg.style.display = 'none';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      fetch('https://formspree.io/f/mdenjzpg', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          form.reset();
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+          okMsg.style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Enviar';
+          errorMsg.style.display = 'block';
+        }
+      }).catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Enviar';
+        errorMsg.style.display = 'block';
+      });
+    });
+  })();
+</script>
 </body>
 </html>
